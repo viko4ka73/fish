@@ -17,7 +17,7 @@ const Nav = () => {
             className='m-0 w-[129px] h-[80px]'
           />
         </a>
-        <ul className='flex-1 flex justify-center items-center gap-24 max-2xl:gap-12 max-lg:hidden '>
+        <ul className='flex-1 flex justify-center items-center gap-20 max-2xl:gap-12 max-lg:hidden '>
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
@@ -35,12 +35,12 @@ const Nav = () => {
           <img
             src={headerSearch}
             alt='cart'
-            className='w-5 h-5 absolute ml-3 pointer-events-none'
+            className='w-5 h-5 absolute ml-3 pointer-events-none '
           />
-          <input type='text' className='search w-[372px] max-2xl:w-full    pr-3 py-2  rounded-md border-none focus:ring-extralight-blue focus:ring-2' />
+          <input type='text' className='search w-[372px]  pr-3 pl-10  max-2xl:w-full py-2  rounded-md border-none focus:ring-extralight-blue focus:ring-2' />
 
         </div>
-
+ 
         <Button label="Корзина" href="/order" Cart={true} />
         {/* <div className='hidden max-lg:block'>
         <img src={hamburger} alt='hamburger icon' width={25} height={25} />

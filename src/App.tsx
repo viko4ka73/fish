@@ -1,7 +1,12 @@
 import { Nav, } from "./components"
 import { Home } from "./pages";
+import Admin from "./pages/Admin";
 import { Footer } from "./sections";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+
+
+
+
 const App = () => {
   return (
     <main className="relative">
@@ -11,9 +16,7 @@ const App = () => {
         <Routes>
         <Route path="/" element={<Home />} />
         </Routes>
-        <section className="padding">
         <Footer />
-      </section>
       </BrowserRouter>
   
 

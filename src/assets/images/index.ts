@@ -7,4 +7,5 @@ import fishnetRight from './fish-net-right.png'
 import fishnetLeft from './fish-net-left.png'
 import sale from './sale.png'
 import mainWavesEnd from './main-page-end.png'
-export { headerLogo, headerSearch, mainFishEnd, mainFishStart, mainWavesStart, fishnetRight, fishnetLeft, sale,mainWavesEnd};
+import adminFish from './admin.png'
+export { headerLogo, headerSearch, mainFishEnd, mainFishStart, mainWavesStart, fishnetRight, fishnetLeft, sale, mainWavesEnd, adminFish};
