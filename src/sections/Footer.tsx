@@ -1,5 +1,4 @@
 import { mainWavesEnd } from "../assets/images";
-import { mainWavesStart } from "../assets/images";
 import { headerLogo } from "../assets/images";
 const Footer = () => {
   return (

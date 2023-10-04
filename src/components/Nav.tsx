@@ -17,12 +17,12 @@ const Nav = () => {
             className='m-0 w-[129px] h-[80px]'
           />
         </a>
-        <ul className='flex-1 flex justify-center items-center gap-20 max-2xl:gap-12 max-lg:hidden '>
+        <ul className='flex-1 flex justify-center items-center gap-8 max-lg:hidden '>
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className='font-montserrat leading-normal text-xl font-bold text-white-400 hover:text-light-blue'
+                className='font-montserrat leading-normal text-2xl font-bold  max-2xl:text-lg   text-white-400 hover:text-light-blue'
               >
                 {item.label}
               </a>
@@ -37,7 +37,7 @@ const Nav = () => {
             alt='cart'
             className='w-5 h-5 absolute ml-3 pointer-events-none '
           />
-          <input type='text' className='search w-[372px]  pr-3 pl-10  max-2xl:w-full py-2  rounded-md border-none focus:ring-extralight-blue focus:ring-2' />
+          <input type='text' className='search w-[372px]   pr-3 pl-10  max-2xl:w-[250px]  py-2  rounded-md border-none focus:ring-extralight-blue focus:ring-2' />
 
         </div>
  

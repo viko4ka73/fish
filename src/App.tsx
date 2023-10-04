@@ -1,6 +1,5 @@
 import { Nav, } from "./components"
 import { Home } from "./pages";
-import Admin from "./pages/Admin";
 import { Footer } from "./sections";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 

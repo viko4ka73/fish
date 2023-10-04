@@ -6,7 +6,7 @@ import ProductionCard from "../components/ProductionCard"
 const Production = () => {
   return (
     <div className="bg-extralight-blue w-full">
-      <div className="flex flex-col bg-extralight-blue pt-[2.3%] ">
+      <div className="flex flex-col bg-extralight-blue pt-[3.5%] ">
         <h2 className="text-dark-blue font-montserrat leading-normal  font-bold text-[64px] ml-16 mt-24">
           Продукция
         </h2>
