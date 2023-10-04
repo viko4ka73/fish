@@ -1,24 +1,16 @@
-import { Nav, } from "./components"
-import { Home } from "./pages";
-import { Footer } from "./sections";
+import { Home, Admin } from "./pages";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
-
-
+import Layout from "./layouts/Layout";
 
 const App = () => {
   return (
     <main className="relative">
-    
       <BrowserRouter>
-        <Nav />
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={ <Layout> <Home/> </Layout>} />
+            <Route path="/auth" element={<Admin/>}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
-  
-
     </main>
   )
 }
