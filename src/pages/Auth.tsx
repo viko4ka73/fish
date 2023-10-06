@@ -16,10 +16,9 @@ const Auth = () => {
                     login: login,
                     password: password
                 });
-
-                if (response.data.success) {
-                    navigate('/home');
-                } 
+                if (response.data) {
+                    navigate('/admin');
+                }
             } catch (error) {
                 console.error('Произошла ошибка:', error);
             }
