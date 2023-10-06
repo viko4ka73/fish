@@ -1,7 +1,7 @@
 
 import Home from "./Home";
-import Admin from "./Admin";
+import Auth from "./Auth";
 
 export {
-    Home, Admin
+    Home, Auth
 }
