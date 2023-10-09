@@ -1,18 +1,10 @@
-import { Home, Auth } from "./pages";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "./layouts/Layout";
-import Admin from "./pages/Admin";
+import routes, {useRoutes} from "./routes/routes";
 
 const App = () => {
+  const routes = useRoutes()
   return (
     <main className="relative">
-      <BrowserRouter>
-        <Routes>
-        <Route path="/" element={ <Layout> <Home/> </Layout>} />
-            <Route path="/auth" element={<Auth/>}></Route>
-            <Route path="/admin" element={<Admin/>}></Route>
-        </Routes>
-      </BrowserRouter>
+        {routes}
     </main>
   )
 }
