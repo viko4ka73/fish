@@ -2,7 +2,7 @@ import { adminFish } from "../assets/images";
 import { Button } from "../components";
 import { useState } from 'react';
 import axios from "axios";
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Alert from "../components/Alert";
 import useAuth from "../hooks/useAuth";
 
@@ -13,28 +13,28 @@ const Auth = () => {
     const navigate  = useNavigate();
 
     const {setAuth} = useAuth()
-    // const location = useLocation()
-    // const from = location.state.from.pathname || '/'
-    // console.log(from)
-    const handleLogin = async () => {
-             // console.log(from)
-            try {
-                const response = await axios.post(`http://127.0.0.1:1337/auth`, {
-                    login: login,
-                    password: password
-                });
-                if (response.data) {
-                    setAuth(true)
-                    navigate('/admin', {replace: true});
-                } else {
-                    setAlert(true)
-                }
-            } catch (error) {
-                console.error('В запросе произошла ошибка:', error);
+
+    const handleLogin = async (event: MouseEvent) => {
+        event.preventDefault();
+        try {
+      
+            const response = await axios.post(`http://127.0.0.1:1337/auth`, {
+                login: login,
+                password: password
+            });
+            if (response.data) {
+                setAuth(true);
+                navigate('/admin', {replace: true});
+            } else {
+                setAlert(true);
             }
 
-    };
-
+        } catch (error) {
+            console.error('В запросе произошла ошибка:', error);
+        }
+       
+      };
+    
     return (
         <form className="bg-gray-100 flex justify-center items-center h-screen">
             <div className="w-1/2 h-screen hidden lg:block">
@@ -65,7 +65,7 @@ const Auth = () => {
                             name="password" className="w-full border
                          border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
                     </div>
-                    <Button label="Войти" Enter={true} onClick ={handleLogin()} />
+                    <Button label="Войти" Enter={true} onClick ={handleLogin} />
             </div>
         </form>
     )
