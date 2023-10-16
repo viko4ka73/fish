@@ -1,14 +1,8 @@
-
 import { mainWavesStart } from "../assets/images";
 import { mainFishStart } from "../assets/images";
 import { mainFishEnd } from "../assets/images";
 import { Button } from "../components";
 
-
-
- 
-
- 
 const MainScreen = () => {
     return (
         <div className="bg-light-blue z-10 w-full max-2xl:h-[560px] pt-10  h-[580px] ">
