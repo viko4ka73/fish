@@ -41,7 +41,7 @@ const Product = () => {
                     <div><Link to="/admin">Все товары</Link></div>
                     <div><Link to={`/admin/edit/${location.pathname.split("/")[2]}`}>Изменить</Link></div>
                     <div><Link to={`/admin/delete/${location.pathname.split("/")[2]}`}>Удалить</Link></div>
-                    <div><Link to="/">Главная страница </Link></div>
+                    <div><Link to="/">Главная страница aaa</Link></div>
                 </nav>
             </header>
             <hr className="my-4 border-t-2 border-blue-200" />
