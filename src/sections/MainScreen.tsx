@@ -6,7 +6,7 @@ import { Button } from "../components";
 const MainScreen = () => {
     return (
         <div className="bg-light-blue z-10 w-full max-2xl:h-[560px] pt-10  h-[580px] ">
-            <div className="flex justify-between items-center pt-[5%] ">
+            <div className="flex justify-between items-center pt-[2%] ">
                 <img
                     src={mainFishEnd}
                     alt='waves'
