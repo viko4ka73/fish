@@ -8,7 +8,7 @@ const Footer = () => {
         alt='waves'
         className="w-full bg-extralight-blue "
       />
-    <div className="flex w-full  bg-light-blue h-[250px] justify-between px-20 items-center ">
+      <div className="flex w-full bg-light-blue justify-between px-20 items-center">
       <div className=" flex flex-col " >
         <p className="font-montserrat text-2xl text-white-400 font-normal leading-loose">
         ИП Хочурыбку <br/>
@@ -24,7 +24,7 @@ const Footer = () => {
           <img
             src={headerLogo}
             alt='logo'
-            className=' w-[250px] h-[250px]'
+            className=' w-[350px] h-[300px]'
           />
         </a>
     </div>

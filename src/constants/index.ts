@@ -1,7 +1,7 @@
 import { sale } from "../assets/images";
 export const navLinks = [
-    { href: "#home", label: "Каталог" },
-    { href: "/about-us", label: "О магазине" },
+    { href: "#home", label: "Продукция" },
+    { href: "/about-us", label: "О нас" },
     { href: "#products", label: "Доставка и оплата" },
     { href: "#contact-us", label: "Контакты" },
 ];

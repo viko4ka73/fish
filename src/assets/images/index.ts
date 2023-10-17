@@ -1,4 +1,4 @@
-import headerLogo from './header-logo.svg'
+import headerLogo from './header-logo.png'
 import headerSearch  from './search.svg'
 import mainFishEnd  from './fish-end.png'
 import mainFishStart  from './fish-start.png'
@@ -8,4 +8,6 @@ import fishnetLeft from './fish-net-left.png'
 import sale from './sale.png'
 import mainWavesEnd from './main-page-end.png'
 import adminFish from './admin.png'
-export { headerLogo, headerSearch, mainFishEnd, mainFishStart, mainWavesStart, fishnetRight, fishnetLeft, sale, mainWavesEnd, adminFish};
+
+import hamburger from './hamburger.svg'
+export { headerLogo, headerSearch, mainFishEnd, mainFishStart, mainWavesStart, fishnetRight, fishnetLeft, sale, mainWavesEnd, adminFish, hamburger};

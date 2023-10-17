@@ -1,5 +1,5 @@
 
-import { MainScreen, Production } from '../sections'
+import { MainScreen, Production } from '../../../../CLONE/fish/src/sections'
 const Home = () => {
     return (
         <div>
