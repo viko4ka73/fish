@@ -3,7 +3,6 @@ import { Button } from "../components";
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-import Alert from "../components/Alert";
 import useAuth from "../hooks/useAuth";
 
 const Auth = () => {
