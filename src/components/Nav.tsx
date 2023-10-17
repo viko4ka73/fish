@@ -1,8 +1,7 @@
-
-import { navLinks } from "../../../../CLONE/fish/src/constants";
+import { navLinks } from "../constants";
 import { hamburger, headerLogo } from "../assets/images";
 import { headerSearch } from "../assets/images";
-import Button from "../../../../CLONE/fish/src/components/Button";
+import Button from "../components/Button";
 
 const Nav = () => {
   return (
@@ -40,7 +39,6 @@ const Nav = () => {
             alt='cart'
             className='w-5 h-5 absolute ml-3 pointer-events-none '
           />
-          {/* <input type='text' className='search w-[372px]  pr-2 pl-10  max-2xl:w-[250px]  py-2  rounded-md border-none focus:ring-extralight-blue focus:ring-2' /> */}
 
         </div>
 
