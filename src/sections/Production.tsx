@@ -21,7 +21,7 @@ const Production = () => {
             ))}
           </div>
           <div className="flex justify-end  mr-20 max-2xl:mr-14 pb-20">
-            <Button label="Вся продукция" href="/catalog" Catalog={true} />
+            <Button label="Вся продукция" href="/products" Catalog={true} />
           </div>
           <div className="relative">
             <img
