@@ -11,8 +11,8 @@ export const useRoutes = () => {
             <AuthProvider>
                 <Routes>
                     <Route path="/" element={<Layout><Home/></Layout>}/>
-                    <Route path="/auth" element={<Auth/>}></Route>
                     <Route path="/about-us" element={<Layout><AboutUs/></Layout>}></Route>
+                    <Route path="/auth" element={<Auth/>}></Route>
                     <Route element={<PrivateRoute/>}>
                         <Route path="/admin" element={<Admin/>}></Route>
                         <Route path="/admin/:id" element={<Product/>}></Route>

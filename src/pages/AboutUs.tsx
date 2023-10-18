@@ -2,7 +2,7 @@
 
 const AboutUs = () => {
     return (
-        <div> KYS ADSASDASDADSASDASDASDADSADS</div>
+       <div>убейте меня блять </div>
     )
 }
 
