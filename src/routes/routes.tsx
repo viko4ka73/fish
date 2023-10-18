@@ -16,7 +16,7 @@ export const useRoutes = () => {
                     <Route path="/about-us" element={<Layout><AboutUs/></Layout>}></Route>
                     <Route path="/delivery-payment" element={<Layout><DeliveryPayment/></Layout>}></Route>
                     <Route path="/contacts" element={<Layout><Contacts/></Layout>}></Route>
-                    <Route path="/order" element={<Cart/>}></Route>
+                    <Route path="/order" element={<Layout><Cart/></Layout>}></Route>
                     <Route path="/auth" element={<Auth/>}></Route>
 
                     <Route element={<PrivateRoute/>}>

@@ -10,8 +10,12 @@ import mainWavesEnd from './main-page-end.png'
 import waves from './waves.png'
 import adminFish from './admin.png'
 import productFish from './fish-right.png'
-
+import caviar from './caviar.svg'
+import smokedFishFire from './smoked-fish-fire.svg'
+import smokedFish from './smoked-fish.svg'
+import arrow from './arrow.svg'
 import hamburger from './hamburger.svg'
+
 export {
     headerLogo,
     headerSearch,
@@ -25,5 +29,9 @@ export {
     adminFish,
     hamburger,
     productFish,
-    waves
+    waves,
+    caviar,
+    smokedFishFire,
+    smokedFish,
+    arrow
 };
