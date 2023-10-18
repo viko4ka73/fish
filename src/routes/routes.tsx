@@ -1,10 +1,10 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "../layouts/Layout";
-import {Home, Products, AboutUs, DeliveryPayment, Contacts, Cart} from "../pages";
+import {Home, Products, AboutUs, DeliveryPayment, Contacts, Cart} from "../pages/user";
 
 import {AuthProvider} from '../context/AuthProvider';
 import {PrivateRoute} from "../components/PrivateRoute";
-import {Auth, Admin, Product, Add, Edit, Delete} from "../admin"
+import {Auth, Admin, Product, Add, Edit, Delete} from "../pages/admin"
 
 export const useRoutes = () => {
     return (

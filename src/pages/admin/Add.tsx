@@ -25,6 +25,7 @@ const Add = () => {
             )
             if (response.status === 200) {
                 console.log("data successfully added")
+                console.log(response.data)
                 navigate("/admin")
             }
         } catch (error) {

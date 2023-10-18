@@ -1,4 +1,4 @@
-import { mainWavesStart } from "../assets/images";
+import { mainWavesStart} from "../../assets/images";
 
 const AboutUs = () => {
     return (

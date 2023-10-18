@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {AdminNav} from "../components"
+import {AdminNav} from "../../components"
 
 const Admin = () => {
 
@@ -20,7 +20,7 @@ const Admin = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://127.0.0.1:1337/admin')
+        const response = await axios.get('http://127.0.0.1:1337/products')
         if (response.status === 200 && response.data.status === 200) {
           setApiData(response.data.data)
         }
