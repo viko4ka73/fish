@@ -8,7 +8,7 @@ import fishnetLeft from './fish-net-left.png'
 import sale from './sale.png'
 import mainWavesEnd from './main-page-end.png'
 import adminFish from './admin.png'
-import productFish from './fish.png'
+import productFish from './fish-right.png'
 
 import hamburger from './hamburger.svg'
 export { headerLogo, headerSearch, mainFishEnd, mainFishStart, mainWavesStart, fishnetRight, fishnetLeft, sale, mainWavesEnd, adminFish, hamburger, productFish};

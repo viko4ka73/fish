@@ -1,20 +1,15 @@
 import Home from "./Home";
+import Products from "./Products";
 import AboutUs from "./AboutUs";
-
-import Auth from "./Auth";
-import Admin from "./Admin";
-import Product from "./Product";
-import Add from "./Add";
-import Edit from "./Edit";
-import Delete from "./Delete";
+import DeliveryPayment from "./DeliveryPayment";
+import Contacts from "./Contacts";
+import Cart from "./Cart"
 
 export {
     Home,
+    Products,
     AboutUs,
-    Auth,
-    Admin,
-    Product,
-    Add,
-    Edit,
-    Delete
+    DeliveryPayment,
+    Contacts,
+    Cart
 }

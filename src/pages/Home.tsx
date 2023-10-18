@@ -1,5 +1,5 @@
-
 import { MainScreen, Production } from '../sections'
+
 const Home = () => {
     return (
         <div>
