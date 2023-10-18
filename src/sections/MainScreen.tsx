@@ -15,7 +15,7 @@ const MainScreen = () => {
                     <h1 className="text-[64px] max-[1800px]:text-[55px] min-[2600px]:text-[80px] font-montserrat font-bold leading-[123%] text-white text-center max-2xl:text-[35px]  mb-16">
                         <span className="text-dark-blue text-[74px] max-[1800px]:text-[65px] min-[2600px]:text-[80px]  max-2xl:text-[41px]"> Окунитесь </span>
                         в мир  морепродуктов с нашим  разнообразием и качеством!</h1>
-                    {/*<Button label="Оформить заказ" href="/order" Order={true} />*/}
+                    <Button label="Оформить заказ" href="/order" Order={true} />
                 </div>
                 <img
                     src={mainFishStart}

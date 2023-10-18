@@ -25,7 +25,7 @@ const Footer = () => {
                     <img
                         src={headerLogo}
                         alt='logo'
-                        className=' max-w-[230px] max-h-[200px] mb-4 '
+                        className=' w-[311px] h-[278px] mb-4 '
                     />
                 </a>
             </div>

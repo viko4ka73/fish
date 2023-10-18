@@ -6,13 +6,16 @@ const Nav = () => {
   return (
     <header className='padding-x py-2.5 absolute z-10 w-full bg-nav-blue'>
       <nav className='flex justify-between items-center max-container'>
-        <div className="flex items-center ">
-          <a href='/' className=" font-montserrat w-20  text-white font-bold text-lg">
+      <div className="flex items-center ">
           <img
             src={headerLogo}
             alt='logo'
-            className='m-0 w-auto h-auto max-w-[200px] max-h-[200px]'
+            width={100}
+            height={80}
+            className='m-0 w-[100px] h-[80px]'
           />
+          <a href='/' className=" font-montserrat w-20  text-white font-bold text-lg">
+            Каспийская волна
           </a>
         </div>
         <ul className='flex-1 flex justify-center items-center gap-[70px]  max-[1400px]:hidden '>
