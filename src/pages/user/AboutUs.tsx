@@ -22,12 +22,6 @@ const AboutUs = () => {
                     ассортимент свежих и вкусных морепродуктов, доставляемых прямо из источника.
                 </p>
                 <span className="text-dark-blue  font-montserrat font-semibold text-justify text-4xl" > Наши ценности:</span>
-                {/* <div className="font-montserrat  leading-tight font-normal text-3xl">
-                    <p> — Качество: Мы предлагаем только самые свежие и высококачественные морепродукты, чтобы наши клиенты могли наслаждаться их неповторимым вкусом.</p>
-                    <p> — Удобство: Мы стремимся сделать процесс заказа и доставки максимально удобным и простым для наших клиентов.
-                        Мы предлагаем гибкие варианты доставки, чтобы каждый мог получить морскую свежесть прямо у себя дома.</p>
-                    <p className="mb-10"> — Партнерство: Мы ценим наших клиентов и  строим долгосрочные партнерские отношения на основе взаимного доверия и уважения. </p>
-                </div> */}
                 <div className="grid grid-cols-3 gap-10 mb-24">
                     <div className="rounded-md mt-10 bg-white p-10">
                         <h3 className="text-main-blue font-montserrat text-[32px] leading-normal font-bold"> Качество </h3>
