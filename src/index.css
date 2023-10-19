@@ -37,7 +37,7 @@
   .search {
     @apply   sm:flex-1 max-sm:w-full text-base leading-normal text-main-blue pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-main-blue max-sm:rounded-full;
   }
- 
+
 }
 
 @layer utilities {

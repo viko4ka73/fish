@@ -1,12 +1,14 @@
 import { navLinks } from "../constants";
-import { hamburger, headerLogo, headerSearch } from "../assets/images";
+import { headerLogo, headerSearch } from "../assets/images";
 import Button from "../components/Button";
+import NavMobile from "./NavMobile";
 
 const Nav = () => {
+
   return (
     <header className='padding-x py-2.5 absolute z-10 w-full bg-nav-blue'>
       <nav className='flex justify-between items-center max-container'>
-      <div className="flex items-center ">
+        <div className="flex items-center ">
           <img
             src={headerLogo}
             alt='logo'
@@ -42,9 +44,9 @@ const Nav = () => {
         </div>
 
         <Button label="Корзина" href="/order" Cart={true} />
-        <div className='hidden max-[1400px]:block'>
-          <img src={hamburger} alt='hamburger icon' width={50} height={50} />
-        </div>
+
+        <NavMobile />
+
       </nav>
     </header>
   )

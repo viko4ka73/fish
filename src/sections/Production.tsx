@@ -15,7 +15,7 @@ const Production = () => {
               alt='net'
               className="absolute right-0 z-0 max-2xl:w-[700px] w-[45%]"
           />
-          <div className="grid grid-cols-3 gap-2 z-10 mt-14 pl-8 pr-20 max-[1700px]:grid-cols-2">
+          <div className="grid grid-cols-3 gap-2 z-[1] mt-14 pl-8 pr-20 max-[1700px]:grid-cols-2">
             {productions.map((production) => (
                 <ProductionCard key={production.name} {...production} />
             ))}
