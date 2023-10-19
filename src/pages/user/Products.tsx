@@ -1,5 +1,4 @@
-import { waves } from "../../assets/images"
-import { fishnetRight } from "../../assets/images"
+import { fishNetProduction, waves } from "../../assets/images"
 import ProductsCard from "../../components/ProductPage/ProductsCard";
 import ProductsName from "../../components/ProductPage/ProductsName"
 import axios from "axios";
@@ -38,23 +37,24 @@ const Products = () => {
             <img
                 src={waves}
                 alt='waves'
-                className="w-full pt-5 z-30"
+                className="w-full pt-5 "
             />
             <img
-                src={fishnetRight}
+                src={fishNetProduction}
                 alt='net'
-                className="absolute right-0 z-0  w-[45%]"
+                className="absolute right-0 z-0 w-[35%]"
             />
-            <div className="">
-                <div className="bg-light-blue w-[435px] ml-10 pb-10 rounded-md mt-[-26px] ">
+             
+            <div className="flex">
+                <div className="bg-light-blue w-[435px] h-full ml-10 pb-10 rounded-md mt-[-26px] z-0">
                     <h1 className="text-4xl font-montserrat font-bold text-dark-blue p-10 pt-20">Продукция</h1>
                     {apiData.map((product) => (
                         <ProductsName key={product.id} {...product} />
                     ))}
                 </div>
-                <div>
-                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue z-10 ">Наименование</h1>
-                    <div className="grid grid-cols-3 gap-2 z-10 ">
+                <div className="flex flex-col p-20">
+                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Наименование</h1>
+                    <div className="grid grid-cols-3 gap-20 mt-14">
                         {apiData.map((product) => (
                             <ProductsCard key={product.id} {...product} />
                         ))}

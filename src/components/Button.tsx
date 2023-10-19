@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Button = ({ label, href, Cart, Order, Catalog, Enter, onClick, inCart  }: any) => {
-  const buttonClass = `flex justify-center font-montserrat items-center border-none px-7 py-3 hover:ring-main-blue hover:ring-2 
+  const buttonClass = `flex justify-center font-montserrat items-center border-none px-7 py-3 hover:ring-dark-blue hover:ring-2 
          ${Cart ? ' w-[215px] h-[40px] rounded-md bg-extralight-blue ' : ''}
          ${Order ? ' rounded-3xl w-[335px] bg-white text-dark-blue' : ''}
-         ${Catalog ? ' bg-main-blue rounded-3xl hover:ring-light-blue hover:ring-2 ' : ''}
+         ${Catalog ? ' bg-main-blue rounded-3xl  ' : ''}
          ${Enter ? 'rounded-md py-2 px-4 w-full bg-main-blue ' : ''}
-         ${inCart ? 'w-[190px] h-[35px] bg-main-blue rounded-xl hover:ring-dark-blue hover:ring-2' :''}`;
+         ${inCart ? 'w-[190px] h-[35px] bg-main-blue rounded-xl ' :''}`;
       
 
   return (
