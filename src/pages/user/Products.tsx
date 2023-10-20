@@ -45,14 +45,14 @@ const Products = () => {
                 className="absolute right-0 z-0 w-[35%]"
             />
              
-            <div className="flex">
-                <div className="bg-light-blue w-[435px] h-full ml-10 pb-10 rounded-md mt-[-26px] z-0">
+            <div className="flex p-4">
+                <div className="bg-light-blue rounded-md">
                     <h1 className="text-4xl font-montserrat font-bold text-dark-blue p-10 pt-20">Продукция</h1>
                     {apiData.map((product) => (
                         <ProductsName key={product.id} {...product} />
                     ))}
                 </div>
-                <div className="flex flex-col p-20">
+                <div className="flex flex-col pl-20 pr-5">
                     <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Наименование</h1>
                     <div className="grid grid-cols-3 gap-20 mt-14">
                         {apiData.map((product) => (
