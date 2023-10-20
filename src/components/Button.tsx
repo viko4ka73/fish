@@ -20,7 +20,7 @@ const Button = ({ label, href, Cart, Order, Catalog, Enter, onClick, inCart  }: 
               : Order
               ? 'max-2xl:text-xl max-[1900px]:text-2xl  font-normal  text-3xl leading-none'
               : Catalog
-              ? 'text-4xl text-white-400 font-bold max-2xl:text-3xl'
+              ? 'text-4xl text-white font-bold max-2xl:text-3xl'
               : Enter
               ? 'text-2xl text-white font-bold'
               : ''
@@ -36,7 +36,7 @@ const Button = ({ label, href, Cart, Order, Catalog, Enter, onClick, inCart  }: 
               : Order
               ? 'max-2xl:text-xl max-[1900px]:text-2xl  font-normal  text-3xl leading-none'
               : Catalog
-              ? 'text-4xl text-white-400 font-bold max-2xl:text-3xl'
+              ? 'text-4xl text-white font-bold max-2xl:text-3xl'
               : Enter
               ? 'text-2xl text-white font-bold'
               : inCart 

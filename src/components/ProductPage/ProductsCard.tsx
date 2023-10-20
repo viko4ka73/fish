@@ -1,5 +1,5 @@
 import Button from "../Button"
-import slug from "slug";
+// import slug from "slug";
 
 const ProductsCard = ({ name, price, photos }: any) => {
     return (
@@ -10,7 +10,8 @@ const ProductsCard = ({ name, price, photos }: any) => {
             </a>
             <div className="pt-5">
                 <a href="#">
-                    <h3 className="text-main-blue font-montserrat text-xl font-normal">{slug(name)}</h3>
+                    {/* <h3 className="text-main-blue font-montserrat text-xl font-normal">{slug(name)}</h3> */}
+                     {/* {/* <h3 className="text-main-blue font-montserrat text-xl font-normal">{name}</h3> */}
                 </a>
                 <div className="flex items-center justify-between pt-3">
                     <span className="text-dark-blue font-montserrat text-xl font-semibold">{price} ₽/кг</span>

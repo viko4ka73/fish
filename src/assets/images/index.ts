@@ -16,6 +16,7 @@ import smokedFish from './smoked-fish.svg'
 import arrow from './arrow.svg'
 import hamburger from './hamburger.svg'
 import fishNetProduction from './fish-net-production.png'
+import fishingMan from './fishing-man.svg'
 
 export {
     headerLogo,
@@ -35,5 +36,6 @@ export {
     smokedFishFire,
     smokedFish,
     arrow,
-    fishNetProduction
+    fishNetProduction,
+    fishingMan
 };
