@@ -1,4 +1,5 @@
 import { sale } from "../assets/images";
+import { caviar, smokedFishFire , smokedFish} from "../assets/images";
 export const navLinks = [
     { href: "/products", label: "Продукция" },
     { href: "/about-us", label: "О нас" },
@@ -35,5 +36,24 @@ export const productions = [
         id:6,
         name: "Продукция",
         img: sale,
+    },
+];
+
+
+export const products = [
+    {
+        id:1,
+        name: "Икра",
+        icon: caviar,
+    },
+    {
+        id:2,
+        name: "Рыба холодного копчения",
+        icon: smokedFish,
+    },
+    {
+        id:3,
+        name: "Рыба горячего копчения",
+        icon: smokedFishFire,
     },
 ];

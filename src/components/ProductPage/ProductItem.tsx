@@ -1,11 +1,11 @@
-import { fishNetProduction, waves } from "../../assets/images"
-import ProductsCard from "../../components/ProductPage/ProductsCard";
+import {  waves } from "../../assets/images"
+import ItemCard from "./ItemCard"
+import ProductsNav from "./ProductsNav"
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ProductsNav from "../../components/ProductPage/ProductsNav";
 
-const Products = () => {
 
+const ProductItem = () => {
     interface Product {
         available: boolean;
         description: string;
@@ -39,20 +39,15 @@ const Products = () => {
                 alt='waves'
                 className="w-full pt-5 "
             />
-            <img
-                src={fishNetProduction}
-                alt='net'
-                className="absolute right-0 z-0 w-[35%]"
-            />
-             
             <div className="flex p-4">
-              <ProductsNav apiData={apiData}/>
+                <ProductsNav apiData={apiData}/>
                 <div className="flex flex-col pl-20 pr-5">
-                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Наименование</h1>
-                    <div className="grid grid-cols-3 gap-20 mt-14">
+
+                    <div className="flex">
                         {apiData.map((product) => (
-                            <ProductsCard key={product.id} {...product} />
+                            <ItemCard key={product.id} {...product} />
                         ))}
+                        <ItemCard />
                     </div>
                 </div>
             </div>
@@ -60,4 +55,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default ProductItem

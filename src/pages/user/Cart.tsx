@@ -1,6 +1,17 @@
+import { waves } from "../../assets/images"
+
 const Cart = () => {
     return (
-        <div>your cart</div>
+        <section  className=" bg-extralight-blue">
+        <img
+                  src={waves}
+                  alt='waves'
+                  className="w-full pt-5"
+              />
+      <div className="h-screen bg-extralight-blue">
+
+      </div>
+      </section>
     )
 }
 
