@@ -8,7 +8,6 @@ import useAuth from "../../hooks/useAuth";
 const Auth = () => {
     const [login, setLogin] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [alert, setAlert] = useState<boolean>(false);
     const navigate  = useNavigate();
 
     const {setAuth} = useAuth()
@@ -24,10 +23,7 @@ const Auth = () => {
             if (response.data) {
                 setAuth(true);
                 navigate('/admin', {replace: true});
-            } else {
-                setAlert(true);
             }
-
         } catch (error) {
             console.error('В запросе произошла ошибка:', error);
         }

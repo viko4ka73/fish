@@ -6,13 +6,13 @@ import {AdminNav} from "../../components"
 const Admin = () => {
 
   interface Product {
-    available: boolean;
     description: string;
     id: number;
     name: string;
     photos: string[];
     price: number;
     category: string;
+    slug: string;
   }
 
   const [apiData, setApiData] = useState<Product[]>([])

@@ -20,7 +20,8 @@ export const useRoutes = () => {
                     <Route path="/contacts" element={<Layout><Contacts/></Layout>}></Route>
                     <Route path="/order" element={<Layout><Cart/></Layout>}></Route>
                     <Route path="/auth" element={<Auth/>}></Route>
-                    <Route path="/404" element={<Layout><Error/></Layout>}></Route>
+                    <Route path="/:random" element={<Layout><Error/></Layout>}></Route>
+
                     <Route element={<PrivateRoute/>}>
                         <Route path="/admin" element={<Admin/>}></Route>
                         <Route path="/admin/:id" element={<Product/>}></Route>

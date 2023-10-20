@@ -1,4 +1,4 @@
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -13,13 +13,13 @@ const Edit = () => {
     } = useForm()
 
     interface Product {
-        available: boolean;
         description: string;
         id: number;
         name: string;
         photos: string[];
         price: number;
         category: string;
+        slug: string;
     }
 
 

@@ -1,17 +1,17 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Link, useLoaderData, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 const Product = () => {
 
     interface Product {
-        available: boolean;
         description: string;
         id: number;
         name: string;
         photos: string[];
         price: number;
         category: string;
+        slug: string;
     }
 
     const [apiData, setApiData] = useState<Product | null>(null);
@@ -21,11 +21,11 @@ const Product = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-
-                const response = await axios.get(`http://127.0.0.1:1337/admin/${params.id}`)
-                if (response.status === 200 && response.data.status === 200) {
-                    setApiData(response.data.data)
+                const response_products = await axios.get(`http://127.0.0.1:1337/admin/${params.id}`)
+                if (response_products.status === 200 && response_products.data.status === 200) {
+                    setApiData(response_products.data.data)
                 }
+
             } catch (error) {
                 console.log(error)
             }
@@ -41,7 +41,7 @@ const Product = () => {
                     <div><Link to="/admin">Все товары</Link></div>
                     <div><Link to={`/admin/edit/${location.pathname.split("/")[2]}`}>Изменить</Link></div>
                     <div><Link to={`/admin/delete/${location.pathname.split("/")[2]}`}>Удалить</Link></div>
-                    <div><Link to="/">Главная страница aaa</Link></div>
+                    <div><Link to="/">Главная страница</Link></div>
                 </nav>
             </header>
             <hr className="my-4 border-t-2 border-blue-200" />
