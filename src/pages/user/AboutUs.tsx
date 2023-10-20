@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { mainWavesStart } from "../../assets/images";
-=======
-import { mainWavesStart} from "../../assets/images";
->>>>>>> catalog
 
 const AboutUs = () => {
     return (
