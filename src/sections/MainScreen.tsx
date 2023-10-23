@@ -3,24 +3,23 @@ import { Button } from "../components";
 
 const MainScreen = () => {
     return (
-        <div className="bg-light-blue z-10 w-full max-2xl:h-[600px] max-xl:h-[550px] max-lg:h-[330px]
-        pt-10  h-[610px] max-[1800px]:h-[630px] ">
+        <div className="bg-light-blue z-10 w-full pt-10  h-[610px] mobile-screen">
             <div className="flex justify-between items-center pt-[2%]  ">
                 <img
                     src={mainFishEnd}
                     alt='waves'
-                    className=" w-[400px] min-[2600px]:w-[800px] max-lg:hidden  max-xl:w-[330px]"
+                    className="mobile-img-end w-[400px]"
                 />
-                <div className="flex flex-col items-center  mb-6">
-                    <h1 className="text-[64px] max-[1800px]:text-[55px] min-[2600px]:text-[80px] font-montserrat font-bold leading-[123%] text-white text-center max-2xl:text-[35px]  mb-16">
-                        <span className="text-dark-blue text-[74px] max-[1800px]:text-[65px] min-[2600px]:text-[80px]  max-2xl:text-[41px]"> Окунитесь </span>
+                <div className="flex flex-col items-center mb-6 max-[611px]:px-0.5 max-[890px]:px-1 max-[965px]:px-5  max-[410px]:mb-2">
+                    <h1 className="text-[64px] mobile-text-header font-montserrat font-bold leading-[123%]  text-white text-center mb-16 max-md:mb-3">
+                        <span className="text-dark-blue text-[74px] mobile-text-span "> Окунитесь </span>
                         в мир  морепродуктов с нашим  разнообразием и качеством!</h1>
                     <Button label="Оформить заказ" href="/order" Order={true} />
                 </div>
                 <img
-                    src={mainFishStart}
+                    src={mainFishStart}  
                     alt='waves'
-                    className=" w-[500px] min-[2600px]:w-[800px] max-lg:hidden  max-xl:w-[350px]"
+                    className="mobile-img-start w-[500px]"
                 />
             </div>
             <div>
@@ -28,7 +27,7 @@ const MainScreen = () => {
             <img
                 src={mainWavesStart}
                 alt='waves'
-                className="w-full max-xl:mt-[30px]"
+                className="w-full "
             />
         </div>
     )
