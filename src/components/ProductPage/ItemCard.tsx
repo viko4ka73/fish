@@ -1,6 +1,6 @@
 import Button from "../Button"
 
-const ItemCard = ({name, price}:any) => {
+const ItemCard = ({name, description, price}:any) => {
 
     return (
         <div className="z-[1] ">
@@ -25,7 +25,7 @@ const ItemCard = ({name, price}:any) => {
               <h3 className="text-main-blue font-montserrat text-xl font-normal">{name}</h3>
                      </a> */}
                 <h3 className="text-main-blue font-montserrat text-2xl font-bold">{name}</h3>
-                <h2 className="text-main-blue font-montserrat text-xl font-normal">Имя рыбы</h2>
+                <h2 className="text-main-blue font-montserrat text-xl font-normal">{description}</h2>
                 <div className="flex items-center justify-between pt-3 ">
                     <span className="text-dark-blue font-montserrat text-xl font-semibold mr-10"> {price}₽/кг</span>
                     <Button label="В корзину" inCart={true} />

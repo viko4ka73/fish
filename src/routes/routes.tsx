@@ -6,6 +6,7 @@ import {AuthProvider} from '../context/AuthProvider';
 import {PrivateRoute} from "../components/PrivateRoute";
 import {Auth, Admin, Product, Add, Edit, Delete} from "../pages/admin"
 import Error from "../pages/user/Error";
+import ProductItem from "../components/ProductPage/ProductItem";
 
 export const useRoutes = () => {
     return (
