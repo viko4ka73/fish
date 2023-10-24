@@ -4,7 +4,7 @@ const ProductsCard = ({ name, price, photos }: any) => {
     return (
 
         <div className="w-full z-[1]  ">
-            <a href="#">
+            <a href="/products/:slug">
                 <img className="w-[375px] h-[375px] object-cover object-center rounded-lg" src={`http://127.0.0.1:1337/${photos[0]}`} alt="product image" />
             </a>
             <div className="pt-5">

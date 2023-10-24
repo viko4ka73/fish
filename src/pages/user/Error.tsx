@@ -17,7 +17,8 @@ const Error = () => {
             />
             <span className="text-dark-blue text-[50px] leading-none font-montserrat font-bold text-center mb-10">
                     Извините рыбки уплыли...
-                    <br/> Ловим новых</span>
+                    <br/> Ловим новых
+            </span>
                 <Button label="Вернуться на главную" Catalog={true} href='/home'/>
             </div> 
         </section>
