@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Button from "../Button"
 
-const ProductsCard = ({ name, price, photos, slug, setSelectedSlug}: any) => {
+const ProductsCard = ({ id, name, price, photos, slug, setSelectedSlug, addToCart}: any) => {
     return (
         <div className="w-full z-[1]  ">
             <Link
@@ -20,7 +20,7 @@ const ProductsCard = ({ name, price, photos, slug, setSelectedSlug}: any) => {
                 </Link>
                 <div className="flex items-center justify-between pt-3">
                     <span className="text-dark-blue font-montserrat text-xl font-semibold">{price} ₽/кг</span>
-                    <Button label="В корзину" inCart={true} />
+                    <Button label="В корзину" inCart={true} onClick={() => addToCart(name)}/>
                 </div>
             </div>
         </div >

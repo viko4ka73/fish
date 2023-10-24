@@ -1,6 +1,6 @@
 import Button from "../Button"
 
-const ItemCard = ({name, description, price}:any) => {
+const ItemCard = ({id, name, description, price, addToCart}:any) => {
 
     return (
         <div className="z-[1] ">
@@ -28,7 +28,7 @@ const ItemCard = ({name, description, price}:any) => {
                 <h2 className="text-main-blue font-montserrat text-xl font-normal">{description}</h2>
                 <div className="flex items-center justify-between pt-3 ">
                     <span className="text-dark-blue font-montserrat text-xl font-semibold mr-10"> {price}₽/кг</span>
-                    <Button label="В корзину" inCart={true} />
+                    <Button label="В корзину" inCart={true} onClick={() => addToCart(id)} />
                 </div>
                 <div ><p className="text-main-blue" >___________________________________________________</p></div>
                 <div className="flex justify-between mt-4 ">

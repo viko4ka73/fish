@@ -6,16 +6,17 @@ import ProductsNav from "../../components/ProductPage/ProductsNav";
 import { Button } from "../../components";
 import ItemCard from "../../components/ProductPage/ItemCard";
 
-const Products = () => {
-    interface Product {
-        description: string;
-        id: number;
-        name: string;
-        photos: string[];
-        price: number;
-        category: string;
-        slug: string;
-    }
+interface Product {
+    description: string;
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+    category: string;
+    slug: string;
+}
+const Products = ({addToCart }:any ) => {
+  
 
     const [apiData, setApiData] = useState<Product[]>([])
     const [categories, setCategories] = useState<string[]>([])
@@ -73,21 +74,21 @@ const Products = () => {
                         <div className="flex flex-col pl-20 pr-5">
                             {selectedSlug ? (
                                 apiData.filter(product => product.slug === selectedSlug).map(filteredProduct => (
-                                    <ItemCard key={filteredProduct.id} {...filteredProduct} />
+                                    <ItemCard key={filteredProduct.id} {...filteredProduct} addToCart={addToCart}/>
                                 ))
                             ) : (
                                 <>
                                     <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Наименование</h1>
                                     <div className="grid grid-cols-3  gap-20 mt-14">
                                         {apiData.map((product) => (
-                                            <ProductsCard key={product.id} {...product} setSelectedSlug={setSelectedSlug} />
+                                            <ProductsCard key={product.id} {...product} setSelectedSlug={setSelectedSlug} addToCart={addToCart}/>
                                         ))}
                                     </div>
                                 </>
                             )}
                             {selectedCategories ?
                                 apiData.filter(product => product.category === selectedCategories).map(filteredProduct => (
-                                    <ProductsCard key={filteredProduct.category} {...filteredProduct} />
+                                    <ProductsCard key={filteredProduct.category} {...filteredProduct} addToCart={addToCart} />
                                 ))
                                 : null
                             }

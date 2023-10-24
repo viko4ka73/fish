@@ -1,10 +1,10 @@
-import routes, {useRoutes} from "./routes/routes";
+import  {useRoutes} from "./routes/routes";
 
 const App = () => {
   const routes = useRoutes()
   return (
     <main className="relative">
-        {routes}
+        {routes}     
     </main>
   )
 }
