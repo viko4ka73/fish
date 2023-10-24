@@ -17,7 +17,7 @@ const NavMobile = () => {
         width={50}
         height={50}
         onClick={toggleMenu}
-        className="cursor-pointer"
+        className="cursor-pointer max-sm:w-[25px] ml-5"
       />
 
       {isMenuOpen && (

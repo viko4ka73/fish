@@ -12,11 +12,9 @@ const Nav = () => {
           <img
             src={headerLogo}
             alt='logo'
-            width={100}
-            height={80}
             className='m-0 w-[100px] h-[80px]'
           />
-          <a href='/' className=" font-montserrat w-20  text-white font-bold text-lg">
+          <a href='/' className=" font-montserrat w-20  text-white font-bold text-lg max-sm:hidden">
             Каспийская волна
           </a>
         </div>
@@ -32,21 +30,8 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-
-
-        <div className="relative flex items-center max-2xl:mr-2 mr-20  max-2xl:ml-6">
-          <img
-            src={headerSearch}
-            alt='cart'
-            className='w-5 h-5 absolute ml-3 pointer-events-none '
-          />
-
-        </div>
-
         <Button label="Корзина" href="/order" Cart={true} />
-
         <NavMobile />
-
       </nav>
     </header>
   )
