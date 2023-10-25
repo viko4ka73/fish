@@ -1,27 +1,29 @@
-import { fishNetProduction, fishingMan, waves } from "../../assets/images"
+import {  fishingMan,  waves } from "../../assets/images"
 import ProductsCard from "../../components/ProductPage/ProductsCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductsNav from "../../components/ProductPage/ProductsNav";
 import { Button } from "../../components";
 import ItemCard from "../../components/ProductPage/ItemCard";
+import { useLocation } from 'react-router-dom';
 
+interface Product {
+    description: string;
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+    category: string;
+    slug: string;
+}
 const Products = () => {
-    interface Product {
-        description: string;
-        id: number;
-        name: string;
-        photos: string[];
-        price: number;
-        category: string;
-        slug: string;
-    }
-
+    const location = useLocation();
+    const selectedSlug = location.pathname.startsWith('/products/') ? location.pathname.split('/').pop() : null;
     const [apiData, setApiData] = useState<Product[]>([])
     const [categories, setCategories] = useState<string[]>([])
-
-    const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
     const [selectedCategories, setSelectedCategories] = useState<string | null>(null);
+
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -41,7 +43,7 @@ const Products = () => {
     }, [])
 
     return (
-        <section className="bg-extralight-blue">
+        <section className=" bg-extralight-blue pb-20">
             <img
                 src={waves}
                 alt='waves'
@@ -63,39 +65,47 @@ const Products = () => {
                 </div>
             ) : (
                 <>
-                    <img
-                        src={fishNetProduction}
-                        alt='net'
-                        className="absolute right-0 z-0 w-[35%]"
-                    />
-                    <div className="flex p-4 ">
+
+                    <div className="flex min-h-[1200px]  ">
                         <ProductsNav categories={categories} setSelectedCategories={setSelectedCategories} />
-                        <div className="flex flex-col pl-20 pr-5">
+                        <div className="flex flex-col ml-[12%] pr-16">
                             {selectedSlug ? (
                                 apiData.filter(product => product.slug === selectedSlug).map(filteredProduct => (
                                     <ItemCard key={filteredProduct.id} {...filteredProduct} />
                                 ))
-                            ) : (
-                                <>
-                                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Наименование</h1>
-                                    <div className="grid grid-cols-3  gap-20 mt-14">
-                                        {apiData.map((product) => (
-                                            <ProductsCard key={product.id} {...product} setSelectedSlug={setSelectedSlug} />
-                                        ))}
-                                    </div>
-                                </>
-                            )}
-                            {selectedCategories ?
-                                apiData.filter(product => product.category === selectedCategories).map(filteredProduct => (
-                                    <ProductsCard key={filteredProduct.category} {...filteredProduct} />
-                                ))
-                                : null
-                            }
+                            ) :
+                                selectedCategories ?
+                                    (
+                                        <>
+                                            <h1 className="text-4xl font-montserrat font-bold text-dark-blue mt-20">
+                                                {selectedCategories}
+                                            </h1>
+                                            <div className="grid grid-cols-3 gap-20 mt-14">
+                                                {
+                                                    apiData
+                                                        .filter(product => product.category === selectedCategories)
+                                                        .map(filteredProduct => (
+                                                            <ProductsCard key={filteredProduct.id} {...filteredProduct} />
+                                                        ))
+                                                }
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>    
+                                            <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Каталог</h1>
+                                            <div className="grid grid-cols-3  gap-[90px] mt-14 ">
+                                                {apiData.map((product) => (
+                                                    <ProductsCard key={product.id} {...product} />
+                                                ))}
+                                            </div>
+                                        </>
+                                    )}
                         </div>
                     </div>
                 </>
             )
             }
+            
         </section >
     )
 }
