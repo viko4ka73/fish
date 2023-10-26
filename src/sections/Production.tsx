@@ -1,10 +1,8 @@
 
-import { productions } from "../constants"
 import { fishnetLeft, fishnetRight } from "../assets/images"
 import ProductionCard from "../components/ProductionCard"
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from "../components";
 
 interface Product {
   description: string;

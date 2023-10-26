@@ -65,7 +65,6 @@ const Products = () => {
                 </div>
             ) : (
                 <>
-
                     <div className="flex min-h-[1200px]  ">
                         <ProductsNav categories={categories} setSelectedCategories={setSelectedCategories} />
                         <div className="flex flex-col ml-[12%] pr-16">

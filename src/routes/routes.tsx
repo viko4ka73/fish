@@ -17,6 +17,7 @@ export const useRoutes = () => {
                     <Route path="/home" element={<Layout><Home/></Layout>}/>
                     <Route path="/products" element={<Layout><Products/></Layout>}></Route>
                     <Route path="/products/:slug" element={<Layout><Products/></Layout>}></Route>
+                    <Route path="/products/:category" element={<Layout><Products/></Layout>}></Route>
                     <Route path="/about-us" element={<Layout><AboutUs/></Layout>}></Route>
                     <Route path="/delivery-payment" element={<Layout><DeliveryPayment/></Layout>}></Route>
                     <Route path="/contacts" element={<Layout><Contacts/></Layout>}></Route>
