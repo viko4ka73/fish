@@ -2,9 +2,37 @@
 import { productions } from "../constants"
 import { fishnetLeft, fishnetRight } from "../assets/images"
 import ProductionCard from "../components/ProductionCard"
-import Button from "../components/Button"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Button } from "../components";
 
+interface Product {
+  description: string;
+  id: number;
+  name: string;
+  photos: string[];
+  price: number;
+  category: string;
+  slug: string;
+}
 const Production = () => {
+
+  const [apiData, setApiData] = useState<Product[]>([])
+
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const responseProduct = await axios.get('http://127.0.0.1:1337/products')
+        if (responseProduct.status === 200 && responseProduct.data.status === 200) {
+          setApiData(responseProduct.data.data)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, [])
   return (
     <div className="bg-extralight-blue w-full">
       <div className="flex flex-col bg-extralight-blue pt-[4%] max-sm:pt-0  ">
@@ -19,9 +47,16 @@ const Production = () => {
         />
         <div className="grid grid-cols-3 gap-2 z-[1] mt-14 pl-8  max-sm:mt-8 max-sm:pl-4 pr-20  max-lg:grid-cols-2 
         max-sm:grid-cols-2 max-[450px]:grid-cols-1 ">
-          {productions.map((production) => (
-            <ProductionCard key={production.name} {...production} />
+          {apiData.map((product) => (
+            <ProductionCard key={product.id} {...product} />
           ))}
+        </div>
+        <div className="relative">
+          <img
+            src={fishnetLeft}
+            alt="net"
+            className="absolute left-[-5px] z-0 max-2xl:w-[700px] max-2xl:left-[-80px] w-[41.5%] bottom-32"
+          />
         </div>
         <div className="flex justify-end  mr-20  pb-20 max-sm:pb-12 max-lg:mr-16 max-xl:mr-20 max-2xl:mr-28">
           <Button label="Вся продукция" href="/products" Catalog={true} />
