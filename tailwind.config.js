@@ -21,7 +21,7 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        'info':"#767191",
+        'info':"rgba(0, 0, 0, 0.7)",
         'nav-blue': "#849BB8",
         'extralight-blue': "#e4ebf1",
         "light-blue": "#b3c4d8",

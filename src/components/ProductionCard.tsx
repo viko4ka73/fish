@@ -2,7 +2,7 @@
 
 const ProductionCard = ({ category, photos }: any) => {
     return (
-        <div className="rounded-md  h-[555px] ml-10  bg-white mb-20 ">
+        <div className="rounded-md  w-[90%] ml-10  bg-white mb-20 ">
 
             <h3 className="text-main-blue font-montserrat text-4xl leading-normal font-bold mt-4 ml-12 max-2xl:text-[35px]"> {category}</h3>
             <div className="flex justify-end bg-[#BFDBEC]  rounded-tl-[85%]">
