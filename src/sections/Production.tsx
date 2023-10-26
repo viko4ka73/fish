@@ -34,7 +34,7 @@ const Production = () => {
     fetchData()
   }, [])
   return (
-    <div className="bg-extralight-blue w-full">
+    <div className="bg-extralight-blue w-full pb-20">
       <div className="flex flex-col bg-extralight-blue pt-[4%] max-sm:pt-0  ">
         <h2 className="text-dark-blue font-montserrat leading-normal  text-[74px] font-bold  mobile-text
            ml-16 mt-20 max-sm:mt-10  max-sm:ml-14">
@@ -51,16 +51,7 @@ const Production = () => {
             <ProductionCard key={product.id} {...product} />
           ))}
         </div>
-        <div className="relative">
-          <img
-            src={fishnetLeft}
-            alt="net"
-            className="absolute left-[-5px] z-0 max-2xl:w-[700px] max-2xl:left-[-80px] w-[41.5%] bottom-32"
-          />
-        </div>
-        <div className="flex justify-end  mr-20  pb-20 max-sm:pb-12 max-lg:mr-16 max-xl:mr-20 max-2xl:mr-28">
-          <Button label="Вся продукция" href="/products" Catalog={true} />
-        </div>
+   
         <img
           src={fishnetLeft}
           alt="net"
