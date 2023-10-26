@@ -17,6 +17,10 @@ import arrow from './arrow.svg'
 import hamburger from './hamburger.svg'
 import fishNetProduction from './fish-net-production.png'
 import fishingMan from './fishing-man.svg'
+import email from './email.svg'
+import whatsapp from './whatsapp.svg'
+import telegram from './telegram.svg'
+import closeX from './close.svg'
 
 export {
     headerLogo,
@@ -37,5 +41,9 @@ export {
     smokedFish,
     arrow,
     fishNetProduction,
-    fishingMan
+    fishingMan,
+    email,
+    whatsapp,
+    telegram,
+    closeX
 };

@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {AdminNav} from "../../components"
+import AdminNav from "../../components/Navigation/AdminNav";
 
 const Admin = () => {
 

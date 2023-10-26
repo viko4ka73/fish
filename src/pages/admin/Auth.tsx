@@ -1,9 +1,11 @@
 import { adminFish } from "../../assets/images";
-import { Button } from "../../components";
+
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
+import Button from "../../components/Button";
+
 
 const Auth = () => {
     const [login, setLogin] = useState<string>('');

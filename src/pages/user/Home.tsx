@@ -2,11 +2,11 @@ import { MainScreen, Production } from '../../sections'
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-extralight-blue'>
             <section className="pt-24">
                 <MainScreen />
             </section>
-            <section>
+            <section className="max-container">
                 <Production />
             </section>
         </div>

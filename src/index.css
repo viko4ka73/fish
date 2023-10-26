@@ -10,6 +10,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 
+
 }
 
 ::-webkit-scrollbar { 
@@ -68,15 +69,12 @@
     @apply sm:pb-24 pb-12;
   }
 
-  .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
-  }
 
 }
 
 .mobile-screen{
   @apply max-2xl:h-[550px]  max-xl:h-[490px] max-lg:h-[400px]  max-[1280px]:h-[410px]   max-md:h-[300px] max-[700px]:h-[280px]  max-sm:h-[240px] max-[964px]:h-[340px] max-[850px]:h-[320px]
-  max-[620px]:h-[180px]  max-[497px]:h-[200px]  max-[406px]:h-[185px] max-[346px]:h-[205px];
+  max-[620px]:h-[180px]  max-[497px]:h-[200px]  max-[406px]:h-[180px] max-[346px]:h-[200px];
 }
 .mobile-img-end{
   @apply max-2xl:w-[350px] max-xl:w-[300px] max-[1280px]:w-[260px]  max-lg:w-[240px]  max-[964px]:w-[210px] max-[850px]:w-[190px] max-md:w-[180px]  max-[700px]:w-[170px]
@@ -86,10 +84,23 @@
   @apply max-2xl:w-[380px] max-xl:w-[350px] max-[1280px]:w-[310px] max-lg:w-[260px] max-[850px]:w-[200px] max-[964px]:w-[235px]   max-md:w-[195px] max-[700px]:w-[180px]
   max-sm:w-[150px]  max-[620px]:hidden;
 }
-.mobile-text-span{
+.mobile-text{
   @apply max-[1800px]:text-[63px]  max-2xl:text-[50px] max-xl:text-[40px]  max-lg:text-[39px]  max-[964px]:text-[29px] max-md:text-[29px]  max-[708px]:text-[24px] max-sm:text-[24px];
 }
 .mobile-text-header{
   @apply max-[1800px]:text-[51px] max-2xl:text-[42px]  max-xl:text-[35px]  max-lg:text-[34px]    max-[964px]:text-[25px] max-md:text-[25px] 
-  max-[708px]:text-[20px]  max-sm:text-[20px] max-[550px]:px-10 max-[406px]:px-2 max-2xl:mb-10 max-lg:mb-6 max-[465px]:mb-2  max-sm:mb-2;
+  max-[708px]:text-[20px]  max-sm:text-[20px];
+}
+
+.mobile-text-button {
+  @apply max-[2560px]:text-[30px]  max-[1920px]:text-[24px] max-lg:text-[20px]   
+   max-sm:text-[16px];
+}
+
+.mobile-text-nav {
+  @apply max-[2560px]:text-[30px] max-[1920px]:text-[24px] 
+   max-sm:text-[16px];
+}
+.mobile-info-text{
+  @apply  max-2xl:text-[42px]  max-xl:text-[32px]  max-lg:text-[21px]  max-md:text-[20px] max-sm:text-[16px];
 }

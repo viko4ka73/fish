@@ -1,5 +1,5 @@
 import { fishingMan, waves } from "../../assets/images"
-import { Button } from "../../components"
+import Button from "../../components/Button"
 
 const Error = () => {
     return (
