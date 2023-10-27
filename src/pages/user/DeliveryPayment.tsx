@@ -1,7 +1,14 @@
 import { delivery, waves2 } from "../../assets/images"
-import { YMaps, Map } from '@pbe/react-yandex-maps';
+import { YMaps, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
 const DeliveryPayment = () => {
+    const points = [
+        {
+            coordinates: [55.749, 37.580],
+            content: 'Каспийская волна',
+        },
+    ];
+
     return (
         <section className=" bg-extralight-blue pt-20">
             <img
@@ -45,13 +52,17 @@ const DeliveryPayment = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full">
-                        <YMaps>
-                            <div style={{ height: '500px' }}>
-                                <Map defaultState={{ center: [55.75, 37.57], zoom: 10 }} />
-                            </div>
-                        </YMaps>
-                    </div>
+                    <YMaps>
+                        <div className="w-full rounded-bl-3xl rounded-br-3xl">
+                            <Map defaultState={{ center: [55.75, 37.57], zoom: 10 }}>
+                                <ZoomControl options={{ size: 'small', position: { bottom: 100, right: 10 } }} />
+                                {points.map(point => (
+                                    <Placemark geometry={point.coordinates} properties={{ iconCaption: point.content }} />
+                                ))}
+                            </Map>
+                        </div>
+                    </YMaps>
+
                 </div>
 
             </div>
