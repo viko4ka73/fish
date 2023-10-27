@@ -1,11 +1,11 @@
-import { fishingMan, waves } from "../../assets/images"
+import { fishingMan, waves2 } from "../../assets/images"
 import Button from "../../components/Button"
 
 const Error = () => {
     return (
-        <section className=" bg-extralight-blue">
+        <section className=" bg-extralight-blue pt-20">
             <img
-                src={waves}
+                src={waves2}
                 alt='waves'
                 className="w-full pt-5"
             />
@@ -13,9 +13,9 @@ const Error = () => {
             <img
                 src={fishingMan}
                 alt='fishing'
-                className=" pb-5"
+                className=" pb-5 max-xl:w-[300px] max-lg:w-[200px]"
             />
-            <span className="text-dark-blue text-[50px] leading-none font-montserrat font-bold text-center mb-10">
+            <span className="text-dark-blue text-[64px] mx-20  mobile-text-header leading-none font-montserrat font-bold text-center mb-10">
                     Извините рыбки уплыли...
                     <br/> Ловим новых
             </span>

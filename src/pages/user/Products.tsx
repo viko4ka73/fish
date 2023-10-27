@@ -1,4 +1,4 @@
-import {  fishingMan,  waves } from "../../assets/images"
+import { fishingMan, serverDead, waves2 } from "../../assets/images"
 import ProductsCard from "../../components/ProductPage/ProductsCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -22,7 +22,8 @@ const Products = () => {
     const [apiData, setApiData] = useState<Product[]>([])
     const [categories, setCategories] = useState<string[]>([])
     const [selectedCategories, setSelectedCategories] = useState<string | null>(null);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -32,38 +33,49 @@ const Products = () => {
                 if (responseProduct.status === 200 && responseProduct.data.status === 200) {
                     setApiData(responseProduct.data.data)
                 }
+                else {
+                    setError("Ошибка при получении данных с сервера.");
+                }
                 if (responseCategory.status === 200) {
                     setCategories(responseCategory.data.data)
                 }
+                else {
+                    setError("Ошибка при получении данных с сервера.");
+                }
             } catch (error) {
-                console.log(error)
+                setError("Произошла ошибка при загрузке данных. Пожалуйста, попробуйте позже.");
+            } finally {
+                setLoading(false);
             }
         }
-        fetchData()
-    }, [])
+        fetchData();
+    }, []);
 
     return (
-        <section className=" bg-extralight-blue pb-20">
+        <section className=" bg-extralight-blue pt-20 pb-20">
             <img
-                src={waves}
+                src={waves2}
                 alt='waves'
                 className="w-full pt-5 "
             />
+            {loading ? (
+                <div className=" h-screen flex flex-col justify-center items-center mt-10">
+                    <div className="animate-spin inline-block w-20 h-20 border-[8px] border-current border-t-transparent text-dark-blue rounded-full dark:text-white" role="status" aria-label="loading">
+                        <span className="sr-only">Loading...</span>
+                    </div></div>
 
-            {apiData === null ? (
-                <div className="h-screen bg-extralight-blue flex flex-col justify-center items-center">
+            ) : error ? (
+                <div className="h-screen flex flex-col justify-center items-center">
                     <img
-                        src={fishingMan}
+                        src={serverDead}
                         alt='fishing'
-                        className="pb-5"
+                        className="pb-5 max-xl:w-[300px] max-lg:w-[200px]"
                     />
-                    <span className="text-dark-blue text-[50px] leading-none font-montserrat font-bold text-center mb-10">
-                        Извините рыбки уплыли...
-                        <br /> Ловим новых
+                    <span className="text-dark-blue text-[64px] mx-20 leading-none font-montserrat font-bold text-center mb-10 mobile-text-header">
+                        {error}
                     </span>
-                    <Button label="Вернуться на главную" Catalog={true} href='/home' />
                 </div>
-            ) : (
+            ) : apiData ? (
                 <>
                     <div className="flex min-h-[1200px]  ">
                         <ProductsNav categories={categories} setSelectedCategories={setSelectedCategories} />
@@ -90,7 +102,7 @@ const Products = () => {
                                             </div>
                                         </>
                                     ) : (
-                                        <>    
+                                        <>
                                             <h1 className="text-4xl font-montserrat font-bold text-dark-blue  mt-20">Каталог</h1>
                                             <div className="grid grid-cols-3  gap-[90px] mt-14 ">
                                                 {apiData.map((product) => (
@@ -102,9 +114,21 @@ const Products = () => {
                         </div>
                     </div>
                 </>
+            ) : (
+                <div className="h-screen bg-extralight-blue flex flex-col justify-center items-center">
+                    <img
+                        src={fishingMan}
+                        alt='fishing'
+                        className="pb-5 max-xl:w-[300px] max-lg:w-[200px]"
+                    />
+                    <span className="text-dark-blue text-[64px] leading-none  mx-20  mobile-text-header font-montserrat font-bold text-center mb-10">
+                        Извините рыбки уплыли...
+                        <br /> Ловим новых
+                    </span>
+                    <Button label="Вернуться на главную" Catalog={true} href='/home' />
+                </div>
             )
             }
-            
         </section >
     )
 }
