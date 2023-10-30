@@ -1,5 +1,7 @@
 import { waves2 } from "../../assets/images"
-import Cart from "../../components/Cart"
+import Cart from "../../components/CartPage/Cart"
+import CartEmpty from "../../components/CartPage/CartEmpty"
+
 
 const CartShop = () => {
     return (
@@ -9,8 +11,10 @@ const CartShop = () => {
                 alt='waves'
                 className="w-full pt-5"
             />
-            <h2 className="text-dark-blue font-montserrat leading-normal  text-center text-[74px] font-bold  mobile-text mt-20 max-sm:mt-10 ">Корзина</h2>
+           
             <Cart />
+
+            <CartEmpty />
         </section >
     )
 }

@@ -25,7 +25,7 @@ import serverDead from './server-dead.svg'
 import waves2 from './waves-other.png'
 import contact from './contact-page.svg'
 import delivery from './delivery.svg'
-
+import fishingNet from './fishing-net.svg'
 export {
     headerLogo,
     headerSearch,
@@ -53,5 +53,6 @@ export {
     serverDead,
     contact,
     waves2,
-    delivery
+    delivery,
+    fishingNet
 }
