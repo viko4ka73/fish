@@ -5,17 +5,20 @@ import ProductsNav from "../../components/ProductPage/ProductsNav";
 import { Button } from "../../components";
 import ItemCard from "../../components/ProductPage/ItemCard";
 
-const ProductItem = () => {
-    interface Product {
-        description: string;
-        id: number;
-        name: string;
-        photos: string[];
-        price: number;
-        category: string;
-        slug: string;
-    }
 
+interface Product {
+    category: string;
+    description: string;
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+    slugCategory:string;
+    slugName: string;
+}
+
+
+const ProductItem = () => {
     const [apiData, setApiData] = useState<Product[]>([])
     const [categories, setCategories] = useState<string[]>([])
  

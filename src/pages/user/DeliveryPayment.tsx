@@ -48,16 +48,7 @@ const DeliveryPayment = () => {
                                         onChange={(event) => setPhone(event.currentTarget.value)}
                                         name="phone" className="w-[60%] max-xl:w-full border
                                      border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
-                                </div>
-                                <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-center justify-between ">
-                                    <label className="block text-dark-blue p-2 ">
-                                        <span className="font-montserrat font-normal  text-xl leading-none"> E-mail </span>
-                                    </label>
-                                    <input type="email" id="email" value={email}
-                                        onChange={(event) => setEmail(event.currentTarget.value)}
-                                        name="email" className="w-[60%] max-xl:w-full border
-                                     border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
-                                </div>
+                                </div>                     
                                 <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-start justify-between">
                                     <label className="block text-dark-blue p-2">
                                         <span className="font-montserrat font-normal text-xl leading-none">Описание заказа</span>

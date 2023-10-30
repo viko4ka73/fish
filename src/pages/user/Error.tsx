@@ -19,7 +19,7 @@ const Error = () => {
                     Извините рыбки уплыли...
                     <br/> Ловим новых
             </span>
-                <Button label="Вернуться на главную" Catalog={true} href='/home'/>
+                <Button label="Вернуться на главную" Catalog={true} href='/'/>
             </div> 
         </section>
     )

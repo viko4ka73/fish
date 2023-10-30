@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom"
 import Button from "../Button"
 
-const ProductsCard = ({ name, price, photos, slug }: any) => {
+const ProductsCard = ({ name, price, photos, slugName }: any) => {
     return (
         <div className="w-full z-[1]">
             <Link
                 key={name}
-                to={slug}
+                to={slugName}
             >
                 <img className="w-[375px] h-[375px] object-cover object-center rounded-lg" src={`http://127.0.0.1:1337/${photos[0]}`} alt="product image" />
             </Link>
             <div className="pt-5">
                 <Link
                     key={name}
-                    to={slug}
+                    to={slugName}
                 >
                     <h3 className="text-main-blue font-montserrat text-xl font-normal">{name}</h3>
                 </Link>

@@ -4,26 +4,27 @@ import { fishingMan, fishnetLeft, fishnetRight, serverDead } from "../assets/ima
 import ProductionCard from "../components/ProductionCard";
 
 interface Product {
+  category: string;
   description: string;
   id: number;
   name: string;
   photos: string[];
   price: number;
-  category: string;
-  slug: string;
+  slugCategory:string;
+  slugName: string;
 }
 
 const Production = () => {
-  const [apiData, setApiData] = useState<Product[] | null>(null);
+  const [categoriesCard , setCategoriesCard ] = useState<Product[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const responseProduct = await axios.get('http://127.0.0.1:1337/products');
-        if (responseProduct.status === 200 && responseProduct.data.status === 200) {
-          setApiData(responseProduct.data.data);
+        const responseCategoriesCard = await axios.get('http://127.0.0.1:1337/categories-cards');
+        if (responseCategoriesCard.status === 200 && responseCategoriesCard.data.status === 200) {
+          setCategoriesCard(responseCategoriesCard.data.data);
         } else {
           setError("Ошибка при получении данных с сервера.");
         }
@@ -59,12 +60,13 @@ const Production = () => {
             {error}
           </span>
       </div>
-        ) : apiData ? (
+        ) : categoriesCard ? (
           <>
             <img src={fishnetRight} alt="net" className="absolute right-0 z-0 max-2xl:w-[700px] w-[45%] max-xl:hidden" />
-            <div className="grid grid-cols-3 gap-2 z-[1] mt-14 pl-8  max-sm:mt-8 max-sm:pl-4 pr-20  max-lg:grid-cols-2 max-sm:grid-cols-2 max-[450px]:grid-cols-1 ">
-              {apiData.map((product) => (
-                <ProductionCard key={product.id} {...product} />
+            <div className="grid grid-cols-3 gap-10 z-[1] mt-14 pl-8  
+            max-sm:mt-8 max-sm:pl-4 pr-20  max-xl:grid-cols-2 max-lg:grid-cols-2 max-sm:grid-cols-1">
+              {categoriesCard.map((categories) => (
+                <ProductionCard key={categories.id} {...categories} />
               ))}
             </div>
             <img src={fishnetLeft} alt="net" className="absolute left-0 z-0 w-[41.5%] bottom-[15%]  max-xl:hidden" />

@@ -1,30 +1,28 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const ProductsNav = ({ categories, setSelectedCategories }: any) => {
-    const [activeCategory, setActiveCategory] = useState(null);
+const ProductsNav = ({category, slugCategory} :any) => {
+    const [hoverCategory, setHoverCategory] = useState(null);
 
-    const handleCategoryClick = (categories:any) => {
-        setSelectedCategories(categories);
-        setActiveCategory(categories);
+    const handleCategoryClick = (category: any) => {
+        setHoverCategory(category);
     };
 
-
-
     return (
-        <div className=" rounded-md pt-12">
-        {categories.map((category: any, index: number) => (
-            <div key={index} className="flex m-10 items-center pl-10 ">
-
-                <h3
-                    className={`text-[32px] leading-none font-bold font-montserrat cursor-pointer ${activeCategory === category ? "text-dark-blue" : "text-light-blue"}`}
-                    onClick={() => handleCategoryClick(category)}
-                >
-                    {category}
-                </h3>
-            </div>
-        ))}
-    </div>
+                <div  className="flex m-10 items-center pl-10 ">
+                    <Link
+                        key={category}
+                        to={`/products/${slugCategory}`}
+                    >
+                        <h3
+                            className={`text-[32px] leading-none  underline font-bold font-montserrat text-white cursor-pointer ${hoverCategory === category ? "hover:text-dark-blue" : ""}`}
+                            onClick={() => handleCategoryClick(category)}
+                        >
+                            {category}
+                        </h3>
+                    </Link>
+                </div>
     );
 }
 
