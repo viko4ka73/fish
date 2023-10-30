@@ -1,11 +1,12 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "../layouts/Layout";
-import {Home, Products, AboutUs, DeliveryPayment, Contacts, Cart} from "../pages/user";
+import {Home, Products, AboutUs, DeliveryPayment, Contacts} from "../pages/user";
 
 import {AuthProvider} from '../context/AuthProvider';
 import {PrivateRoute} from "../components/PrivateRoute";
 import {Auth, Admin, Product, Add, Edit, Delete} from "../pages/admin"
 import Error from "../pages/user/Error";
+import CartShop from "../pages/user/CartShop";
 
 
 export const useRoutes = () => {
@@ -21,7 +22,7 @@ export const useRoutes = () => {
                     <Route path="/about-us" element={<Layout><AboutUs/></Layout>}></Route>
                     <Route path="/delivery-payment" element={<Layout><DeliveryPayment/></Layout>}></Route>
                     <Route path="/contacts" element={<Layout><Contacts/></Layout>}></Route>
-                    <Route path="/order" element={<Layout><Cart/></Layout>}></Route>
+                    <Route path="/order" element={<Layout><CartShop/></Layout>}></Route>
                     <Route path="/auth" element={<Auth/>}></Route>
                     <Route path="/:random" element={<Layout><Error/></Layout>}></Route>
                  

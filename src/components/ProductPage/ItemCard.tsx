@@ -1,6 +1,7 @@
 import Button from "../Button";
-import PhotoContainer from "./PhotoContainer";
+
 import { Link, useLocation, useParams } from 'react-router-dom';
+import PhotoContainer from "./PhotoContainer";
 
 interface Product {
     description: string;
