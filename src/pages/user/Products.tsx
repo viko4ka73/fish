@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductsNav from "../../components/ProductPage/ProductsNav";
 import ItemCard from "../../components/ProductPage/ItemCard";
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "../../components";
 
 interface Product {
@@ -56,7 +56,6 @@ const Products = () => {
         fetchData();
     }, []);
 
-    console.log(categories);
     return (
         <section className="bg-extralight-blue pt-20 pb-32">
             <img
@@ -90,20 +89,44 @@ const Products = () => {
                             ))}
                         </div>
                         <div className="flex flex-col ml-[12%] pr-16">
-                            <div className="grid grid-cols-3 gap-20 mt-14">
+                            {/* {selectedCategory && (
+                                <>
+                                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue mt-14">  {selectedCategory}</h1>
+                                    <Link to="/products"
+                                        className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg mt-8"> Назад к списку товаров</Link>
+                                </>
+                            )} */}
 
-                                {apiData.map(product => (
+
+                            {selectedSlug ? (
+                                <>
+
+                                    {apiData.some(product => product.slugCategory === selectedSlug) && (
+                                        <>
+                                            <h1 className="text-4xl font-montserrat font-bold text-dark-blue mt-14">
+                                                {selectedCategory}
+                                            </h1>
+                                            <Link to="/products" className="font-montserrat mobule-text-button font-bold text-dark-blue text-lg mt-8">
+                                                Назад к списку товаров
+                                            </Link>
+                                        </>
+                                    )}
+                                </>
+                            ) : null}
+                            <div className="grid grid-cols-3 gap-20 mt-14">
+                                {apiData.map((product) =>
                                     selectedSlug === product.slugCategory ? (
                                         <div key={product.id}>
                                             <ProductsCard key={product.id} {...product} />
                                         </div>
-                                    ) : null))}
+                                    ) : null
+                                )}
                             </div>
 
                             {apiData.map(product => (
                                 selectedSlug === product.slugName ? (
                                     <div key={product.id}>
-                                        <ItemCard key={product.id} {...product} />
+                                        <ItemCard key={product.id} {...product}  onSelectCategory={handleSelectCategory}/>
                                     </div>
                                 ) : null))}
                             {selectedSlug === null && (

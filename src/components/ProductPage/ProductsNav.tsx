@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductsNav = ({category, slugCategory} :any) => {
+const ProductsNav = ({category, slugCategory, onSelectCategory} :any) => {
     const [hoverCategory, setHoverCategory] = useState(null);
 
     const handleCategoryClick = (category: any) => {
         setHoverCategory(category);
+        onSelectCategory(category);
     };
 
     return (

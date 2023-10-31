@@ -4,6 +4,7 @@ import Button from "../Button"
 const ProductsCard = ({ name, price, photos, slugName }: any) => {
     return (
         <div className="w-full z-[1]">
+            
             <Link
                 key={name}
                 to={slugName}
