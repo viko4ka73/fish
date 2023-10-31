@@ -1,6 +1,7 @@
 import {Link, useNavigate} from "react-router-dom";
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form";
 import axios from "axios";
+import {useState} from "react";
 
 
 const Add = () => {
@@ -12,6 +13,7 @@ const Add = () => {
     } = useForm()
 
     const navigate = useNavigate()
+    const [nameValue, setNameValue] = useState("");
 
     const saveForm: SubmitHandler<FieldValues> = async (data) => {
         console.log(data)
@@ -52,9 +54,12 @@ const Add = () => {
                             type="text"
                             placeholder="Введите название"
                             {...register("name", {
-                                required: {value: true, message: "Необходимо ввести имя!"},
-                                min: {value: 2, message: "Имя не может быть короче 2 символов!"}
+                                required: {value: true, message: "Необходимо ввести Название!"},
+                                min: {value: 2, message: "Название не может быть короче 2 символов!"},
                             })}
+                            onChange={(e) => {
+                                setNameValue(e.target.value)
+                            }}
                         />
                         {errors.name && <div className="text-red-500">{String(errors.name.message)}</div>}
                     </div>
@@ -67,7 +72,8 @@ const Add = () => {
                             placeholder="Введите категорию"
                             {...register("category", {
                                 required: {value: true, message: "Необходимо ввести категорию!"},
-                                min: {value: 2, message: "Категория не может быть короче 2 символов!"}
+                                min: {value: 2, message: "Категория не может быть короче 2 символов!"},
+                                validate: (value) => value !== nameValue || 'Название и категория не должны совпадать'
                             })}
                         />
                         {errors.category && <div className="text-red-500">{String(errors.category.message)}</div>}

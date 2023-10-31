@@ -28,7 +28,6 @@ const Delete = () => {
                     <div><Link to="/">Главная страница </Link></div>
                 </nav>
             </header>
-            <hr className="my-4 border-t-2 border-blue-200" />
             <div className="m-4 p-4 font-montserrat font-normal flex flex-col items-center">
                 <div className="mb-4">Вы точно хотите удалить этот продукт?</div>
                 <button className="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800" type="submit" onClick={handleDelete}>

@@ -68,7 +68,6 @@ const Edit = () => {
                     <div><Link to="/">Главная страница </Link></div>
                 </nav>
             </header>
-            <hr className="my-4 border-t-2 border-blue-200" />
             <div className="p-4" >
                 <form className="max-w-md mx-auto p-4" onSubmit={handleSubmit(saveForm)}>
                     <div className="mb-4">

@@ -33,21 +33,19 @@ const Admin = () => {
   }, [])
 
   return (
-      <div className="m-4 p-4 font-montserrat font-normal">
+      <div className="m-4 p-4 font-montserrat font-normal flex-col">
         <AdminNav />
+        <div className="grid grid-cols-2">
         {apiData &&
             apiData.map((record, index) => (
                 <Link to={`${record.id}`} key={index}>
-                  <hr className="my-4 border-t-2 border-blue-200" />
                   <div className="border-1 m-4 p-4 rounded-lg hover:shadow-lg transition-all duration-300 bg-white">
                     <div className="mb-4 flex gap-6">
-                      {record.photos.map((photo, ind) => (
-                          <img
-                              src={`http://127.0.0.1:1337/${photo}`}
-                              alt={`Фотография продукта №${ind}`}
-                              className="w-64 h-64 object-cover object-center rounded-lg"
-                          />
-                      ))}
+                      <img
+                          src={`http://127.0.0.1:1337/${record.photos[0]}`}
+                          alt={`Фотография продукта №${1}`}
+                          className="w-64 h-64 object-cover object-center rounded-lg"
+                      />
                     </div>
                     <div className="text-blue-800 font-semibold text-lg mb-2">
                       {record.name}
@@ -60,6 +58,7 @@ const Admin = () => {
                   </div>
                 </Link>
             ))}
+        </div>
       </div>
   );
 };
