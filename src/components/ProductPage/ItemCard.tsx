@@ -2,29 +2,29 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import PhotoContainer from "./PhotoContainer";
 
-// interface Product {
-//     category: string;
-//     description: string;
-//     id: number;
-//     name: string;
-//     photos: string[];
-//     price: number;
-//     slugCategory: string;
-//     slugName: string;
-//     onSelectCategory: (category: any) => void;
-// }
+type ItemProps = {
+    category: string;
+    description: string;
+    name: string;
+    photos: string[];
+    price: number;
+    slugCategory: string;
+    slugName: string;
+    onSelectCategory?: (category: any) => void;
+}
 
-const ItemCard = ({ name, description, photos, price, slugCategory, category, slugName, onSelectCategory}: any ) => {
+const ItemCard = ({ name, description, photos, price, slugCategory, category, slugName, onSelectCategory }: ItemProps) => {
     const handleCategoryClick = (category: any) => {
-
-        onSelectCategory(category);
+        if (onSelectCategory) {
+            onSelectCategory(category);
+        }
     };
     return (
         <div>
             <Link to="/products"
                 className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg"> Назад к списку товаров</Link>
             <span> / </span>
-            <Link to={`/products/${slugCategory}`}  onClick={() => handleCategoryClick(category)} className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg">
+            <Link to={`/products/${slugCategory}`} onClick={() => handleCategoryClick(category)} className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg">
                 {category}</Link>
             <span> / </span>
             <Link to={`/products/${slugName}`} className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg">

@@ -126,7 +126,11 @@ const Products = () => {
                             {apiData.map(product => (
                                 selectedSlug === product.slugName ? (
                                     <div key={product.id}>
-                                        <ItemCard key={product.id} {...product}  onSelectCategory={handleSelectCategory}/>
+                                        <ItemCard
+                                            key={product.id}
+                                            {...product}
+                                            onSelectCategory={handleSelectCategory}
+                                        />
                                     </div>
                                 ) : null))}
                             {selectedSlug === null && (
