@@ -76,7 +76,7 @@ const Production = () => {
             <img
               src={fishingMan}
               alt='fishing'
-              className="pb-5"
+              className="pb-5 max-xl:w-[300px] max-lg:w-[200px]"
             />
             <span className="text-dark-blue text-[64px]  mx-20  leading-none mobile-text-header font-montserrat font-bold text-center mb-10">
               Извините рыбки уплыли...

@@ -29,9 +29,9 @@ const ItemCard = ({ name, description, photos, price, slugCategory, category, sl
             <span> / </span>
             <Link to={`/products/${slugName}`} className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg">
                 {name}</Link>
-            <div className="flex pt-6 w-full" >
+            <div className="flex pt-6 w-full max-xl:flex-col" >
                 <PhotoContainer photos={photos} />
-                <div className=" px-4 sm:px-6 lg:px-8 mt-6 w-full">
+                <div className=" px-4 mt-6 w-full max-md:px-0">
                     <div className="flex flex-col md:flex-row ">
                         <div className="md:flex-1 px-4">
                             <h2 className="mb-2 font-montserrat mobule-text-button  font-bold text-dark-blue text-3xl">
@@ -43,13 +43,13 @@ const ItemCard = ({ name, description, photos, price, slugCategory, category, sl
                                         Описание товара:
                                     </h2>
                                     <div className="rounded-lg bg-gray-100 flex p-5">
-                                        <span className="text-info font-montserrat text-xl font-medium mr-10">
+                                        <span className="text-info font-montserrat text-xl font-medium mr-10  break-all">
                                             {description}
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between max-md:flex-col">
                                 <p className="text-dark-blue font-bold  font-montserrat pb-2 text-xl"> {price} ₽/кг</p>
                                 <Button label="В корзину" inCart={true} />
                             </div>

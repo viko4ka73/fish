@@ -13,8 +13,8 @@ const PhotoContainer = ({ photos }: PhotoContainerProps) => {
     };
 
     return (
-        <div className="bg-white shadow-lg rounded-lg p-6 w-full">
-            <div className="w-full relative h-96">
+        <div className="bg-white shadow-lg rounded-lg p-6 w-full ">
+            <div className="w-full relative h-96 max-md:h-64 ">
                 <img
                     src={`http://127.0.0.1:1337/${photos[activePhotoIndex]}`}
                     alt={`Photo ${activePhotoIndex}`}
@@ -25,7 +25,7 @@ const PhotoContainer = ({ photos }: PhotoContainerProps) => {
                 {photos.map((photo, index) => (
                     <div
                         key={index}
-                        className={`w-full h-32 relative cursor-pointer ${index === activePhotoIndex ? 'border-2 rounded-lg border-dark-blue' : ''}`}
+                        className={`w-full h-32  max-md:h-20 relative cursor-pointer ${index === activePhotoIndex ? 'border-2 rounded-lg border-dark-blue' : ''}`}
                         onClick={() => handleThumbnailClick(index)}
                     >
                         <img

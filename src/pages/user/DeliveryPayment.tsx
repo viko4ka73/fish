@@ -5,7 +5,6 @@ import { Button } from "../../components";
 const DeliveryPayment = () => {
     const [name, setName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
     const [description, setDescription] = useState<string>('');
 
 

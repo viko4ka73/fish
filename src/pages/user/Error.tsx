@@ -13,7 +13,7 @@ const Error = () => {
             <img
                 src={fishingMan}
                 alt='fishing'
-                className=" pb-5 max-xl:w-[300px] max-lg:w-[200px]"
+                className=" pb-5  max-xl:w-[300px] max-lg:w-[200px]"
             />
             <span className="text-dark-blue text-[64px] mx-20  mobile-text-header leading-none font-montserrat font-bold text-center mb-10">
                     Извините рыбки уплыли...

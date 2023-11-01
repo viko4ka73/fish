@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
 
+type ProductionCardProps = {
+    category: string;
+    photos: string[];
+    slugCategory: string;
+}
 
-const ProductionCard = ({ category, photos, slugCategory }: any) => {
+const ProductionCard = ({ category, photos, slugCategory }: ProductionCardProps) => {
     return (
         <Link key={category}
             to={`/products/${slugCategory}`}>

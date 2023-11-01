@@ -82,22 +82,13 @@ const Products = () => {
                         </span>
                     </div>
                 ) : apiData ? (
-                    <div className="flex  ">
-                        <div className="flex flex-col mt-10 rounded-r-[50px] bg-light-blue h-[100%]">
+                    <div className="flex max-md:flex-col ">
+                        <div className="flex flex-col mt-10 rounded-r-[50px] bg-light-blue h-[100%] max-md:flex-row  max-md:mr-4 max-[500px]:flex-col max-[500px]:w-[150px]">
                             {categories.map((product) => (
                                 <ProductsNav key={product.id} {...product} onSelectCategory={handleSelectCategory} />
                             ))}
                         </div>
                         <div className="flex flex-col ml-[12%] pr-16">
-                            {/* {selectedCategory && (
-                                <>
-                                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue mt-14">  {selectedCategory}</h1>
-                                    <Link to="/products"
-                                        className="font-montserrat mobule-text-button  font-bold text-dark-blue text-lg mt-8"> Назад к списку товаров</Link>
-                                </>
-                            )} */}
-
-
                             {selectedSlug ? (
                                 <>
 
@@ -113,7 +104,7 @@ const Products = () => {
                                     )}
                                 </>
                             ) : null}
-                            <div className="grid grid-cols-3 gap-20 mt-14">
+                            <div className="grid grid-cols-3 gap-[90px] mt-14 max-2xl:grid-cols-2 max-xl:grid-cols-1 max-[380px]:mt-6">
                                 {apiData.map((product) =>
                                     selectedSlug === product.slugCategory ? (
                                         <div key={product.id}>
@@ -135,8 +126,8 @@ const Products = () => {
                                 ) : null))}
                             {selectedSlug === null && (
                                 <>
-                                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue">Каталог</h1>
-                                    <div className="grid grid-cols-3 gap-[90px] mt-14">
+                                    <h1 className="text-4xl font-montserrat font-bold text-dark-blue mobile-text-header">Каталог</h1>
+                                    <div className="grid grid-cols-3 gap-[90px] mt-14 max-2xl:grid-cols-2 max-xl:grid-cols-1 max-[380px]:mt-6">
                                         {apiData.map((product) => (
                                             <ProductsCard key={product.id} {...product} />
                                         ))}
@@ -148,11 +139,16 @@ const Products = () => {
                     </div>
                 ) : (
                     <div className="h-screen bg-extralight-blue flex flex-col justify-center items-center">
+                        <img
+                            src={fishingMan}
+                            alt='fishing'
+                            className="pb-5 max-xl:w-[300px] max-lg:w-[200px]"
+                        />
                         <span className="text-dark-blue text-[64px] leading-none mx-20 mobile-text-header font-montserrat font-bold text-center mb-10">
                             Извините, рыбки уплыли...
                             <br /> Ловим новых
                         </span>
-                        <Button label="Вернуться на главную" Catalog={true} href='/' />
+                        <Button label="На главную" Catalog={true} href='/' />
                     </div>
                 )}
         </section>
