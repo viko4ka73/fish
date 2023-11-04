@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import PhotoContainer from "./PhotoContainer";
+import {ShopContext} from "../../context/ShopProvider";
+import {useContext} from "react";
 
 type ItemProps = {
+    id: number;
     category: string;
     description: string;
     name: string;
@@ -13,12 +16,30 @@ type ItemProps = {
     onSelectCategory?: (category: any) => void;
 }
 
-const ItemCard = ({ name, description, photos, price, slugCategory, category, slugName, onSelectCategory }: ItemProps) => {
+interface Product {
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+}
+
+const ItemCard = ({id, name, description, photos, price, slugCategory, category, slugName, onSelectCategory }: ItemProps) => {
+
+    const {addToCart} = useContext(ShopContext)!
+
     const handleCategoryClick = (category: any) => {
         if (onSelectCategory) {
             onSelectCategory(category);
         }
     };
+
+    const product: Product = {
+        id: id,
+        name: name,
+        price: price,
+        photos: photos
+    }
+
     return (
         <div>
             <Link to="/products"
@@ -51,7 +72,7 @@ const ItemCard = ({ name, description, photos, price, slugCategory, category, sl
                             </div>
                             <div className="flex justify-between max-md:flex-col">
                                 <p className="text-dark-blue font-bold  font-montserrat pb-2 text-xl"> {price} ₽/кг</p>
-                                <Button label="В корзину" inCart={true} />
+                                <Button label="В корзину" inCart={true} onClick={() => {addToCart(product)}}/>
                             </div>
                         </div>
                     </div>

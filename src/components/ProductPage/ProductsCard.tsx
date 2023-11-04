@@ -1,19 +1,37 @@
 import { Link } from "react-router-dom"
 import Button from "../Button"
-
+import {ShopContext} from "../../context/ShopProvider";
+import {useContext} from "react";
 
 type ProductsCardProps = {
+    id: number,
     name: string;
     price: number;
     photos: string[];
     slugName: string;
 }
 
+interface Product {
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+}
 
-const ProductsCard = ({ name, price, photos, slugName }: ProductsCardProps) => {
+
+const ProductsCard = ({id, name, price, photos, slugName }: ProductsCardProps) => {
+
+    const {addToCart} = useContext(ShopContext)!
+
+    const product: Product = {
+        id: id,
+        name: name,
+        price: price,
+        photos: photos
+    }
+
     return (
         <div className="w-full z-[1]">
-            
             <Link
                 key={name}
                 to={slugName}
@@ -29,7 +47,7 @@ const ProductsCard = ({ name, price, photos, slugName }: ProductsCardProps) => {
                 </Link>
                 <div className="flex items-center justify-between pt-3 max-md:flex-col max-md:items-start ">
                     <span className="text-dark-blue font-montserrat text-xl font-semibold max-md:mb-4">{price} ₽/кг</span>
-                    <Button label="В корзину" inCart={true} />
+                    <Button label="В корзину" inCart={true} onClick={() => {addToCart(product)}}/>
                 </div>
             </div>
         </div >

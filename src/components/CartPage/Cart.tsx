@@ -1,12 +1,34 @@
 import Feedback from "./Feedack";
+import {useContext} from "react";
+import {ShopContext} from "../../context/ShopProvider";
+
+type CartItem = {
+    id: number;
+    name: string;
+    photos: string[];
+    price: number;
+    // Include other properties if there are any
+    quantity?: number;
+};
+
+// Define the type for props expected by the Cart component
+interface CartProps {
+    cartItems: CartItem[]; // Assuming cartItems is an array of CartItem objects
+}
+
+// Get the cart items using useContext and provide a type to the context
+const { cartItems } = useContext(ShopContext)!
 
 
-
-
-const Cart = () => {
-
+const Cart = ({ cartItems }: CartProps) => {
+    console.log(cartItems)
     return (
         <div className=" pt-20 pb-20">
+            <div className="pt-20 pb-20">
+                {cartItems.map(item => (
+                    <div key={item.id}>{item.name}</div> // Example usage of cart item
+                ))}
+            </div>
              <h2 className="text-dark-blue font-montserrat leading-normal  text-center text-[74px] font-bold  mobile-text mt-10  pb-10">Корзина</h2>
             <div className="mx-auto max-w-7xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
                 <div className="rounded-lg md:w-2/3">
