@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import product from "../pages/admin/Product";
 
 interface Product {
     id: number;
@@ -14,6 +15,7 @@ interface CartItem extends Product {
 interface ShopContextValue {
     cartItems: { [key: number]: CartItem };
     addToCart: (product: Product) => void;
+    decrementFromCart: (productId: number) => void;
     removeFromCart: (productId: number) => void;
 }
 
@@ -50,19 +52,41 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
                 [product.id]: newCartItem
             };
         });
-        console.log(cartItems)
+    };
+
+    const decrementFromCart = (productId: number) => {
+        setCartItems((prevItems) => {
+            const currentItem = prevItems[productId];
+            if (!currentItem) {
+                return prevItems;
+            }
+            if (currentItem.quantity > 1) {
+                return {
+                    ...prevItems,
+                    [productId]: {
+                        ...currentItem,
+                        quantity: currentItem.quantity - 1
+                    }
+                };
+            } else {
+                const updatedItems = { ...prevItems };
+                delete updatedItems[productId];
+                return updatedItems;
+            }
+        });
     };
 
     const removeFromCart = (productId: number) => {
         setCartItems((prevItems) => {
             const updatedItems = { ...prevItems };
-            delete updatedItems[productId]; // Удаляем товар по productId
+            delete updatedItems[productId];
+            localStorage.setItem('cartItems', JSON.stringify(updatedItems));
             return updatedItems;
         });
     };
 
     return (
-        <ShopContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+        <ShopContext.Provider value={{ cartItems, addToCart, decrementFromCart, removeFromCart }}>
             {children}
         </ShopContext.Provider>
     );
