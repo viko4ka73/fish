@@ -71,6 +71,7 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
             } else {
                 const updatedItems = { ...prevItems };
                 delete updatedItems[productId];
+                localStorage.setItem('cartItems', JSON.stringify(updatedItems));
                 return updatedItems;
             }
         });
