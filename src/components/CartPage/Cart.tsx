@@ -24,6 +24,10 @@ const Cart: React.FC<CartProps> = ({cartItems}) => {
         return total + item.price * item.quantity;
     }, 0);
 
+    const updateCartItemPrice = (item: CartItem): number => {
+        return item.price * item.quantity;
+    };
+
     return (
         <div className=" pt-20 pb-20">
             <h2 className="text-dark-blue font-montserrat leading-normal  text-center text-[74px] font-bold  mobile-text mt-10  pb-10">Корзина</h2>
@@ -50,8 +54,8 @@ const Cart: React.FC<CartProps> = ({cartItems}) => {
                             <span onClick={() => {addToCart(item)}}
                                   className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-extradark-blue hover:text-blue-50"> + </span>
                         </div>
-                        <div className="flex items-center space-x-4 text-dark-blue"><p
-                            className="text-sm">{item.price} ₽</p>
+                        <div className="flex items-center space-x-4 text-dark-blue">
+                            <p className="text-sm">   {updateCartItemPrice(item)} ₽</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                  stroke-width="1.5" stroke="currentColor" onClick={() => {removeFromCart(item.id)}}
                                  className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
