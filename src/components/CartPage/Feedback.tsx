@@ -9,7 +9,7 @@ interface FormData {
     phone: string;
     adress: string;
     number: string;
-    code: string;
+    doorphone: string;
     floor: string;
     apartment: string;
     comment:string;
@@ -109,7 +109,7 @@ const Feedback = ({ cartAmount }: any) => {
                     className="w-full border text-dark-blue border-gray-300 rounded-md py-2 font-montserrat font-normal leading-none text-lg px-3 focus:outline-none focus:border-main-blue" />
                 {errors.adress && <div className="text-[#FF6B6B]">{errors.adress.message}</div>}
                 <div className="flex mt-2 gap-4">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col ">
                         <label className="block text-dark-blue">
                             <span className="font-montserrat font-normal leading-none text-lg ">Подъезд</span>
                         </label>
@@ -126,18 +126,18 @@ const Feedback = ({ cartAmount }: any) => {
                     </div>
                     <div className="flex flex-col">
                         <label className="block text-dark-blue">
-                            <span className="font-montserrat font-normal leading-none text-lg ">Код двери</span>
+                            <span className="font-montserrat font-normal leading-none text-lg ">Домофон</span>
                         </label>
-                        <input type="text" id="code"
-                            {...register("code", {
-                                required: "Необходимо ввести код двери!",
+                        <input type="text" id="doorphone"
+                            {...register("doorphone", {
+                                required: "Необходимо ввести код домофона!",
                                 minLength: {
                                     value: 1,
                                     message: "Код не может быть короче 1 символа!"
                                 }
                             })}
                             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
-                        {errors.code && <div className="text-[#FF6B6B]">{errors.code.message}</div>}
+                        {errors.doorphone && <div className="text-[#FF6B6B]">{errors.doorphone.message}</div>}
                     </div>
                 </div>
                 <div className="flex mt-2 gap-4">
