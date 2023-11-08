@@ -16,7 +16,6 @@ const Add = () => {
     const [nameValue, setNameValue] = useState("");
 
     const saveForm: SubmitHandler<FieldValues> = async (data) => {
-        console.log(data)
         try {
             const response = await axios.post('http://127.0.0.1:1337/admin', data,
                 {
