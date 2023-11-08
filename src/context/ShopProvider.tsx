@@ -18,12 +18,14 @@ interface ShopContextValue {
     decrementFromCart: (productId: number) => void;
     removeFromCart: (productId: number) => void;
     clearCart: () => void;
+    cartItemCount: number; 
 }
 
 export const ShopContext = createContext<ShopContextValue | null>(null);
 
 export const ShopProvider = ({ children }: { children: JSX.Element }) => {
     const [cartItems, setCartItems] = useState<{ [key: number]: CartItem }>({});
+    
 
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cartItems');
@@ -52,8 +54,10 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
                 ...prevItems,
                 [product.id]: newCartItem
             };
+            
         });
     };
+    const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
 
     const decrementFromCart = (productId: number) => {
         setCartItems((prevItems) => {
@@ -94,7 +98,7 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
 
 
     return (
-        <ShopContext.Provider value={{ cartItems, addToCart, decrementFromCart, removeFromCart, clearCart}}>
+        <ShopContext.Provider value={{ cartItems, addToCart, decrementFromCart, removeFromCart, clearCart, cartItemCount }}>
             {children}
         </ShopContext.Provider>
     );

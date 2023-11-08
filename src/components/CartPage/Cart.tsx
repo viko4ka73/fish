@@ -1,4 +1,4 @@
-import Feedback from "./Feedack";
+import Feedback from "./Feedback";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopProvider";
 
@@ -77,7 +77,7 @@ const Cart: React.FC<CartProps> = ({cartItems}) => {
             <p className="mb-1 text-lg font-bold text-extradark-blue">{cartAmount.toFixed(2)}</p>
                     </div>
                 </div>
-                <Feedback />
+                <Feedback cartAmount={cartAmount}/>
             </div>
         </div>
     </div>

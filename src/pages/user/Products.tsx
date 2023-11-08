@@ -91,7 +91,6 @@ const Products = () => {
                         <div className="flex flex-col ml-[12%] pr-16">
                             {selectedSlug ? (
                                 <>
-
                                     {apiData.some(product => product.slugCategory === selectedSlug) && (
                                         <>
                                             <h1 className="text-4xl font-montserrat font-bold text-dark-blue mt-14">

@@ -2,19 +2,22 @@ import { navLinks } from "../../constants";
 import { headerLogo } from "../../assets/images";
 import Button from "../Button";
 import NavMobile from "./NavMobile";
-
+import { useContext } from "react";
+import { ShopContext } from "../../context/ShopProvider";
 const Nav = () => {
+
+  const { cartItemCount } = useContext(ShopContext)!;
 
   return (
     <header className='padding-x py-2.5 absolute z-10 w-full bg-nav-blue'>
       <nav className='flex justify-between items-center max-container'>
         <div className="flex items-center ">
           <a href="/">
-          <img
-            src={headerLogo}
-            alt='logo'
-            className='m-0 w-[100px] h-[80px]'
-          />
+            <img
+              src={headerLogo}
+              alt='logo'
+              className='m-0 w-[100px] h-[80px]'
+            />
           </a>
           <a href='/' className=" font-montserrat w-20  text-white font-bold  max-2xl:hidden text-lg max-sm:hidden">
             Каспийская волна
@@ -33,8 +36,8 @@ const Nav = () => {
           ))}
         </ul>
         <div className="flex items-center">
-        <Button label="Корзина" href="/order" Cart={true} />
-        <NavMobile />
+          <Button label={`Корзина`} href="/order" Cart={true} itemCount={cartItemCount} />
+          <NavMobile />
         </div>
       </nav>
     </header>
