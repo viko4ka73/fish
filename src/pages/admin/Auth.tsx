@@ -18,7 +18,7 @@ const Auth = () => {
         event.preventDefault();
         try {
       
-            const response = await axios.post(`http://127.0.0.1:1337/auth`, {
+            const response = await axios.post(`${process.env.REACT_APP_VAR_API_URL}/auth`, {
                 login: login,
                 password: password
             });

@@ -1,17 +1,45 @@
-import { useState } from "react";
 import { delivery, waves2 } from "../../assets/images"
 import { Button } from "../../components";
+import {useForm} from "react-hook-form";
+import axios from "axios";
 
 const DeliveryPayment = () => {
-    const [name, setName] = useState<string>('');
-    const [phone, setPhone] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
 
+    interface FormData {
+        name: string;
+        phone: string;
+        comment:string;
+    }
 
-    const handleForm = async () => {
-        console.log();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<FormData>()
 
-    };
+    console.log(process.env)
+    const onSubmit = (data: FormData) => {
+
+        const telegramToken: string = process.env.REACT_APP_VAR_TG_TOKEN!;
+        console.log("token", telegramToken)
+        const chatId: string = process.env.REACT_APP_VAR_CHAT_ID!;
+        let text: string = `Поступил вопрос! \n\nИмя: ${data.name}\nТелефон: ${data.phone}\n\nВопрос:\n${data.comment}`;
+
+        axios.post(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+            chat_id: chatId,
+            text: text,
+        })
+            .then(response => {
+                reset();
+            })
+            .catch(error => {
+                console.error("Ошибка при отправке вопроса в Telegram", error);
+            });
+    }
+
+    const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+
     return (
         <section className=" bg-extralight-blue pt-20 pb-20">
             <img
@@ -27,41 +55,48 @@ const DeliveryPayment = () => {
                         flex flex-col max-xl:m-8   max-md:m-4">
                             <h3 className="text-dark-blue font-montserrat  text-[30px]  text-center
                             leading-normal font-bold mt-8  mobile-text-button mb-4  max-[400px]:p-2">
-                                Хотите оформить заказ? <br />
+                                Хотите задать нам вопрос? <br />
                                 Заполните форму и мы вам перезвоним!</h3>
-                            <form className="p-8 flex flex-col ">
+                            <form className="p-8 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-center justify-between  ">
                                     <label className="block text-dark-blue p-2 ">
-                                        <span className="font-montserrat  font-medium  text-xl leading-none"> ФИО </span>
+                                        <span className="font-montserrat  font-medium  text-xl leading-none"> Имя </span>
                                     </label>
-                                    <input type="text" id="name" value={name}
-                                        onChange={(event) => setName(event.currentTarget.value)}
-                                        name="name" className="w-[60%] max-xl:w-full border border-gray-300 
-                                         rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
+                                    <input type="text" className="w-[60%] max-xl:w-full border border-gray-300
+                                         rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
+                                           {...register("name", {required: "Введите ваше ваше имя!"})}/>
+                                    {errors.name && <div className="text-[#FF6B6B]">{errors.name.message}</div>}
                                 </div>
                                 <div className="mb-4 flex max-xl:flex-col max-xl:items-start  items-center justify-between ">
                                     <label className="block text-dark-blue p-2 ">
                                         <span className="font-montserrat font-normal  text-xl leading-none"> Номер телефона </span>
                                     </label>
-                                    <input type="tel" id="phone" value={phone}
-                                        onChange={(event) => setPhone(event.currentTarget.value)}
-                                        name="phone" className="w-[60%] max-xl:w-full border
-                                     border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
+                                    <input type="tel" className="w-[60%] max-xl:w-full border
+                                     border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
+                                           {...register("phone", {
+                                               required: "Введите номер телефона!",
+                                               minLength: {
+                                                   value: 6,
+                                                   message: "Номер не может быть короче 6 символов!"
+                                               },
+                                               pattern: {
+                                                   value: phoneRegExp,
+                                                   message: "Некорректный формат номера телефона"
+                                               }})}/>
+                                    {errors.phone && <div className="text-[#FF6B6B]">{errors.phone.message}</div>}
                                 </div>                     
                                 <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-start justify-between">
                                     <label className="block text-dark-blue p-2">
-                                        <span className="font-montserrat font-normal text-xl leading-none">Описание заказа</span>
+                                        <span className="font-montserrat font-normal text-xl leading-none">Ваш вопрос</span>
                                     </label>
                                     <textarea
-                                        id="description"
-                                        value={description}
-                                        onChange={(event) => setDescription(event.currentTarget.value)}
-                                        name="description"
                                         className="w-[60%] h-72 max-xl:w-full  max-h-72 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
+                                        {...register("comment", {required: "Необходимо ввести описание заказа!", minLength: {value: 6, message: "Вопрос должен сожержать минимум 6 букв!"}})}
                                     ></textarea>
+                                    {errors.comment && <div className="text-[#FF6B6B]">{errors.comment.message}</div>}
                                 </div>
                                 <div className="mt-4 flex justify-end ">
-                                    <Button type="submit" label="Отправить" Delivery={true} onClick={handleForm} ></Button>
+                                    <Button type="submit" label="Отправить" Delivery={true}></Button>
                                 </div>
                             </form>
                         </div>

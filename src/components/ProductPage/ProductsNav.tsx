@@ -25,7 +25,7 @@ const ProductsNav = ({category, slugCategory, onSelectCategory} :ProductsNavProp
                         to={`/products/${slugCategory}`}
                     >
                         <h3
-                            className={`text-[32px] leading-none mobile-info-text  underline font-bold font-montserrat text-white cursor-pointer ${hoverCategory === category ? "hover:text-dark-blue" : ""}`}
+                            className={`text-[32px] leading-none mobile-info-text font-bold font-montserrat text-white cursor-pointer ${hoverCategory === category ? "hover:text-dark-blue" : ""}`}
                             onClick={() => handleCategoryClick(category)}
                         >
                             {category}

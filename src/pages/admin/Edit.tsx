@@ -30,7 +30,7 @@ const Edit = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`http://127.0.0.1:1337/admin/${params.id}`)
+                const response = await axios.get(`${process.env.REACT_APP_VAR_API_URL}/admin/${params.id}`)
                 if (response.status === 200) {
                     setApiData(response.data.data)
                     const { name, category, price, description, photos } = response.data.data
@@ -50,7 +50,7 @@ const Edit = () => {
 
     const saveForm: SubmitHandler<FieldValues> = async (data) => {
         try {
-            const response = await axios.put(`http://127.0.0.1:1337/admin/${params.id}`, data)
+            const response = await axios.put(`${process.env.REACT_APP_VAR_API_URL}/admin/${params.id}`, data)
             if (response.status === 200) {
                 navigate("/admin")
             }

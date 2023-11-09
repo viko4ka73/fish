@@ -19,7 +19,7 @@ const Product = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`http://127.0.0.1:1337/admin/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_VAR_API_URL}/admin/${id}`);
                 if (response.status === 200 && response.data.status === 200) {
                     setApiData(response.data.data);
                 }
@@ -48,7 +48,7 @@ const Product = () => {
                             <div className="flex flex-wrap -mx-4 mb-6">
                                 {apiData.photos.map((photo, index) => (
                                     <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4">
-                                        <img src={`http://127.0.0.1:1337/${photo}`} alt={apiData.name} className="w-full h-64 object-cover rounded-lg" />
+                                        <img src={`${process.env.REACT_APP_VAR_API_URL}/${photo}`} alt={apiData.name} className="w-full h-64 object-cover rounded-lg" />
                                     </div>
                                 ))}
                             </div>

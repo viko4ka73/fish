@@ -17,7 +17,7 @@ const Add = () => {
 
     const saveForm: SubmitHandler<FieldValues> = async (data) => {
         try {
-            const response = await axios.post('http://127.0.0.1:1337/admin', data,
+            const response = await axios.post(`${process.env.REACT_APP_VAR_API_URL}/admin`, data,
                 {
                 headers: {
                     "Content-Type": "multipart/form-data",

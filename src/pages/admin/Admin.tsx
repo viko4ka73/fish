@@ -20,7 +20,7 @@ const Admin = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://127.0.0.1:1337/products')
+        const response = await axios.get(`${process.env.REACT_APP_VAR_API_URL}/products`)
         if (response.status === 200 && response.data.status === 200) {
           setApiData(response.data.data)
         }
@@ -42,7 +42,7 @@ const Admin = () => {
                   <div className="border-1 m-4 p-4 rounded-lg hover:shadow-lg transition-all duration-300 bg-white">
                     <div className="mb-4 flex gap-6">
                       <img
-                          src={`http://127.0.0.1:1337/${record.photos[0]}`}
+                          src={`${process.env.REACT_APP_VAR_API_URL}/${record.photos[0]}`}
                           alt={`Фотография продукта №${1}`}
                           className="w-64 h-64 object-cover object-center rounded-lg"
                       />
@@ -50,7 +50,7 @@ const Admin = () => {
                     <div className="text-blue-800 font-semibold text-lg mb-2">
                       {record.name}
                     </div>
-                    <div className="text-blue-600 mb-2">Цена: ${record.price}</div>
+                    <div className="text-blue-600 mb-2">Цена: {record.price} руб</div>
                     <div className="text-blue-600 mb-2">
                       Описание: {record.description}
                     </div>

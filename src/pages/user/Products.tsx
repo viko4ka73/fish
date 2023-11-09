@@ -33,8 +33,8 @@ const Products = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const responseProduct = await axios.get('http://127.0.0.1:1337/products')
-                const responseCategory = await axios.get(`http://127.0.0.1:1337/categories-cards`)
+                const responseProduct = await axios.get(`${process.env.REACT_APP_VAR_API_URL}/products`)
+                const responseCategory = await axios.get(`${process.env.REACT_APP_VAR_API_URL}/categories-cards`)
                 if (responseProduct.status === 200 && responseProduct.data.status === 200) {
                     setApiData(responseProduct.data.data)
                 }

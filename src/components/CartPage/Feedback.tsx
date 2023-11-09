@@ -7,7 +7,7 @@ import { ShopContext } from "../../context/ShopProvider";
 interface FormData {
     name: string;
     phone: string;
-    adress: string;
+    address: string;
     number: string;
     doorphone: string;
     floor: string;
@@ -25,22 +25,25 @@ const Feedback = ({ cartAmount }: any) => {
     } = useForm<FormData>()
 
     const { clearCart, cartItems } = useContext(ShopContext)!;
-    const [message, setMessage] = useState('');
 
     const onSubmit = (data: FormData) => {
 
 
-        const telegramToken: string = "6925211492:AAGcTqcTyDP8Dmg4LXSR_fJL87_k4eOb5es";
-        const chatId: string = "-4025606117";
-        let text: string = `Поступил заказ! \n\nИмя: ${data.name}\nТелефон: ${data.phone}\n\nЗаказ:\n`;
+        const telegramToken: string = process.env.REACT_APP_VAR_TG_TOKEN!;
+        const chatId: string = process.env.REACT_APP_VAR_CHAT_ID!;
+        let text: string = `Поступил заказ! \n\nИмя: ${data.name}\nТелефон: ${data.phone}\n\nДетали заказа\n\n`;
         let totalAmount: number = 0;
 
         Object.values(cartItems).map((item) => {
-            text += `Товар: ${item.name}, Цена: ${item.price} руб, Количество: ${item.quantity}\n кг`;
-            totalAmount += item.price
+            text += `Товар: ${item.name}, Цена: ${item.price} руб, Количество: ${item.quantity} кг\n\n\n`;
+            totalAmount += parseInt(String(item.price));
         })
+        if (totalAmount < 5000) {
+            text += `\n\nСумма заказа: ${totalAmount} руб`
+        } else {
+            text += `Детали доставки\n\nУлица: ${data.address}, Подъезд: ${data.number}, Домофон: ${data.doorphone}, Этаж: ${data.floor}, Квартира: ${data.apartment}\n\nКомментарий: ${data.comment}`
+        }
 
-        text += `\n\nСумма заказа: ${totalAmount} руб`
 
         axios.post(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
             chat_id: chatId,
@@ -51,7 +54,7 @@ const Feedback = ({ cartAmount }: any) => {
                 clearCart();
             })
             .catch(error => {
-                console.error("Ошибка при отправке сообщения в Telegram", error);
+                console.error("Ошибка при отправке заказа в Telegram", error);
             });
     }
 
@@ -96,10 +99,10 @@ const Feedback = ({ cartAmount }: any) => {
             {cartAmount >= 5000 ? <div className="mb-4">
 
                 <label className="block text-dark-blue">
-                    <span className="font-montserrat font-normal leading-none text-lg ">Адрес доставки</span>
+                    <span className="font-montserrat font-normal leading-none text-lg ">Улица</span>
                 </label>
                 <input type="text" id="adress"
-                    {...register("adress", {
+                    {...register("address", {
                         required: "Необходимо ввести адрес доставки!",
                         minLength: {
                             value: 1,
@@ -107,20 +110,14 @@ const Feedback = ({ cartAmount }: any) => {
                         }
                     })}
                     className="w-full border text-dark-blue border-gray-300 rounded-md py-2 font-montserrat font-normal leading-none text-lg px-3 focus:outline-none focus:border-main-blue" />
-                {errors.adress && <div className="text-[#FF6B6B]">{errors.adress.message}</div>}
+                {errors.address && <div className="text-[#FF6B6B]">{errors.address.message}</div>}
                 <div className="flex mt-2 gap-4">
                     <div className="flex flex-col ">
                         <label className="block text-dark-blue">
                             <span className="font-montserrat font-normal leading-none text-lg ">Подъезд</span>
                         </label>
                         <input type="text" id="number"
-                            {...register("number", {
-                                required: "Необходимо ввести номер подъезда!",
-                                minLength: {
-                                    value: 1,
-                                    message: "Номер подъезда не может быть короче 1 символа!"
-                                }
-                            })}
+                            {...register("number", )}
                             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
                         {errors.number && <div className="text-[#FF6B6B]">{errors.number.message}</div>}
                     </div>
@@ -129,13 +126,7 @@ const Feedback = ({ cartAmount }: any) => {
                             <span className="font-montserrat font-normal leading-none text-lg ">Домофон</span>
                         </label>
                         <input type="text" id="doorphone"
-                            {...register("doorphone", {
-                                required: "Необходимо ввести код домофона!",
-                                minLength: {
-                                    value: 1,
-                                    message: "Код не может быть короче 1 символа!"
-                                }
-                            })}
+                            {...register("doorphone", )}
                             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
                         {errors.doorphone && <div className="text-[#FF6B6B]">{errors.doorphone.message}</div>}
                     </div>
@@ -161,13 +152,7 @@ const Feedback = ({ cartAmount }: any) => {
                                 <span className="font-montserrat font-normal leading-none text-lg ">Квартира</span>
                             </label>
                             <input type="text" id="apartment"
-                                {...register("apartment", {
-                                    required: "Необходимо ввести номер квартиры!",
-                                    minLength: {
-                                        value: 1,
-                                        message: "Номер квартиры не может быть короче 1 символа!"
-                                    }
-                                })}
+                                {...register("apartment", )}
                                 className="w-full border  border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue" />
                             {errors.apartment && <div className="text-[#FF6B6B]">{errors.apartment.message}</div>}
                         </div>

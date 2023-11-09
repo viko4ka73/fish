@@ -14,7 +14,7 @@ const ProductionCard = ({ category, photos, slugCategory }: ProductionCardProps)
                 <h3 className="text-main-blue font-montserrat  text-[64px]  cursor-pointer
                         leading-normal font-bold mt-4 ml-12 mobile-text-header max-xl:ml-8 max-lg:ml-6 max-sm:ml-4 "> {category}</h3>
                 <div className="flex justify-end  ">
-                    <img src={`http://127.0.0.1:1337/${photos[0]}`} className="rounded-tl-[90%]  border-t-8 border-l-8 border-[#BFDBEC]  
+                    <img src={`${process.env.REACT_APP_VAR_API_URL}/${photos[0]}`} className="rounded-tl-[90%]  border-t-8 border-l-8 border-[#BFDBEC]
                  h-[45vh]  min-w-[100px] max-w-[800px] max-sm:h-[25vh]  object-cover object-center" alt={category} />
                 </div>
             </div>

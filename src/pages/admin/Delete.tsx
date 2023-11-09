@@ -9,7 +9,7 @@ const Delete = () => {
 
     const handleDelete = async () => {
         try {
-            const apiUrl = `http://127.0.0.1:1337/admin/${params.id}`
+            const apiUrl = `${process.env.REACT_APP_VAR_API_URL}/admin/${params.id}`
             const response = await axios.delete(apiUrl)
             if (response.status === 200) {
                 navigate('/admin')

@@ -16,7 +16,7 @@ const PhotoContainer = ({ photos }: PhotoContainerProps) => {
         <div className="bg-white shadow-lg rounded-lg p-6 w-full ">
             <div className="w-full relative h-96 max-md:h-64 ">
                 <img
-                    src={`http://127.0.0.1:1337/${photos[activePhotoIndex]}`}
+                    src={`${process.env.REACT_APP_VAR_API_URL}/${photos[activePhotoIndex]}`}
                     alt={`Photo ${activePhotoIndex}`}
                     className="w-full h-full object-cover object-center rounded-lg"
                 />
@@ -29,7 +29,7 @@ const PhotoContainer = ({ photos }: PhotoContainerProps) => {
                         onClick={() => handleThumbnailClick(index)}
                     >
                         <img
-                            src={`http://127.0.0.1:1337/${photo}`}
+                            src={`${process.env.REACT_APP_VAR_API_URL}/${photo}`}
                             alt={`Photo ${index}`}
                             className="w-full h-full object-cover rounded-lg"
                         />

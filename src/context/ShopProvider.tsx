@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import product from "../pages/admin/Product";
 
 interface Product {
     id: number;

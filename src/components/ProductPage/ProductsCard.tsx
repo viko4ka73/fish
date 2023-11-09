@@ -36,7 +36,7 @@ const ProductsCard = ({id, name, price, photos, slugName }: ProductsCardProps) =
                 key={name}
                 to={slugName}
             >
-                <img className="w-[375px] h-[375px] max-xl:w-full max-md:w-full max-md:h-[200px] object-cover object-center rounded-lg" src={`http://127.0.0.1:1337/${photos[0]}`} alt="product image" />
+                <img className="w-[375px] h-[375px] max-xl:w-full max-md:w-full max-md:h-[200px] object-cover object-center rounded-lg" src={`${process.env.REACT_APP_VAR_API_URL}/${photos[0]}`} alt="product image" />
             </Link>
             <div className="pt-5">
                 <Link
