@@ -1,7 +1,10 @@
 import { delivery, waves2 } from "../../assets/images"
 import { Button } from "../../components";
 import { useForm } from "react-hook-form";
+
 import axios from "axios";
+import Alert from "../../components/Alert";
+import { useState } from "react";
 
 const DeliveryPayment = () => {
 
@@ -10,6 +13,8 @@ const DeliveryPayment = () => {
         phone: string;
         comment: string;
     }
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
 
     const {
         register,
@@ -32,22 +37,30 @@ const DeliveryPayment = () => {
         })
             .then(response => {
                 reset();
+                setShowSuccessAlert(true);
             })
             .catch(error => {
+                setShowErrorAlert(true);
                 console.error("Ошибка при отправке вопроса в Telegram", error);
             });
 
     }
+    const closeAlert = () => {
+        setShowSuccessAlert(false);
+         setShowErrorAlert(false);
+    };
 
     const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
 
     return (
         <section className=" bg-extralight-blue pt-20 pb-20">
+
             <img
                 src={waves2}
                 alt='waves'
                 className="w-full pt-5"
             />
+
             <h2 className="text-dark-blue font-montserrat leading-normal  text-[74px] font-bold  mobile-text ml-16 mt-20 max-sm:mt-10  max-sm:ml-14">Доставка</h2>
             <div className=" flex justify-center p-16  max-xl:p-8 mt-8   max-xl:mt-4 max-[2560px]:items-center ">
                 <div className="rounded-3xl bg-light-blue w-full z-[1]  ">
@@ -59,7 +72,7 @@ const DeliveryPayment = () => {
                                 Хотите задать нам вопрос? <br />
                                 Заполните форму и мы вам перезвоним!</h3>
                             <form className="p-8 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-                            
+
                                 <div className="mb-2 flex max-xl:flex-col max-xl:items-start items-center justify-between  ">
                                     <label className="block text-dark-blue p-2 ">
                                         <span className="font-montserrat  font-medium  text-xl leading-none"> Имя </span>
@@ -85,7 +98,7 @@ const DeliveryPayment = () => {
                                                 value: phoneRegExp,
                                                 message: "Некорректный формат номера телефона"
                                             }
-                                        })} />  
+                                        })} />
                                 </div>
                                 {errors.phone && <div className="text-[#FF6B6B] flex justify-end mb-2">{errors.phone.message}</div>}
                                 <div className="mb-2 flex max-xl:flex-col max-xl:items-start items-start justify-between">
@@ -95,7 +108,7 @@ const DeliveryPayment = () => {
                                     <textarea
                                         className="w-[60%] h-72 max-xl:w-full  max-h-72 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
                                         {...register("comment", { required: "Необходимо ввести описание заказа!", minLength: { value: 6, message: "Вопрос должен сожержать минимум 6 букв!" } })}
-                                    ></textarea>       
+                                    ></textarea>
                                 </div>
                                 {errors.comment && <div className="text-[#FF6B6B]  flex justify-end">{errors.comment.message}</div>}
                                 <div className="mt-4 flex justify-end ">
@@ -125,7 +138,32 @@ const DeliveryPayment = () => {
                 </div>
 
             </div>
-
+            {showSuccessAlert && (
+                <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-center z-10 
+                opacity-100 transition-opacity duration-500  bg-black bg-opacity-50">
+                    <div className="bg-white text-white p-4 rounded-lg">
+                        <div className="container mx-auto text-end ">
+                            <Alert message="Скоро с вами свяжется наш менеджер!" type="success" />
+                            <button className="mt-4 border-2 px-4 rounded-sm bg-extralight-blue  font-montserrat text-dark-blue hover:ring-light-blue hover:ring-2 text-xl" onClick={closeAlert}>
+                                Закрыть
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {showErrorAlert && (
+              <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-center z-10 
+              opacity-100 transition-opacity duration-500  bg-black bg-opacity-50">
+                    <div className="bg-white text-white p-4 rounded-lg">
+                        <div className="container mx-auto text-end">
+                            <Alert message="Что-то пошло не так. Пожалуйста, попробуйте еще раз." type="error" />
+                            <button className="mt-4 border-2 px-4 rounded-sm bg-extralight-blue  font-montserrat text-dark-blue hover:ring-light-blue hover:ring-2 text-xl" onClick={closeAlert}>
+                                Закрыть
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

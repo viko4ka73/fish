@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ShopContext } from "../../context/ShopProvider";
 
+
 interface FormData {
     name: string;
     phone: string;
@@ -15,7 +16,13 @@ interface FormData {
     comment:string;
 }
 
-const Feedback = ({ cartAmount }: any) => {
+type FeedbackProps = {
+    cartAmount: number;
+    setShowSuccessAlert:React.Dispatch<React.SetStateAction<boolean>>;
+    setShowErrorAlert: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Feedback = ({ cartAmount, setShowSuccessAlert, setShowErrorAlert}: FeedbackProps) => {
 
     const {
         register,
@@ -27,7 +34,6 @@ const Feedback = ({ cartAmount }: any) => {
     const { clearCart, cartItems } = useContext(ShopContext)!;
 
     const onSubmit = (data: FormData) => {
-
 
         const telegramToken: string = process.env.REACT_APP_VAR_TG_TOKEN!;
         const chatId: string = process.env.REACT_APP_VAR_CHAT_ID!;
@@ -52,16 +58,20 @@ const Feedback = ({ cartAmount }: any) => {
             .then(response => {
                 reset();
                 clearCart();
+                setShowSuccessAlert(true);
             })
             .catch(error => {
+                setShowErrorAlert(true);
                 console.error("Ошибка при отправке заказа в Telegram", error);
             });
     }
 
     const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
 
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+        
             <div className="mb-4 mt-4">
                 <label className="block text-dark-blue">
                     <span className="font-montserrat font-medium leading-none text-lg">Имя</span>
