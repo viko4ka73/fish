@@ -1,6 +1,6 @@
 import { delivery, waves2 } from "../../assets/images"
 import { Button } from "../../components";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const DeliveryPayment = () => {
@@ -8,7 +8,7 @@ const DeliveryPayment = () => {
     interface FormData {
         name: string;
         phone: string;
-        comment:string;
+        comment: string;
     }
 
     const {
@@ -36,6 +36,7 @@ const DeliveryPayment = () => {
             .catch(error => {
                 console.error("Ошибка при отправке вопроса в Telegram", error);
             });
+
     }
 
     const phoneRegExp = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
@@ -58,43 +59,45 @@ const DeliveryPayment = () => {
                                 Хотите задать нам вопрос? <br />
                                 Заполните форму и мы вам перезвоним!</h3>
                             <form className="p-8 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-                                <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-center justify-between  ">
+                            
+                                <div className="mb-2 flex max-xl:flex-col max-xl:items-start items-center justify-between  ">
                                     <label className="block text-dark-blue p-2 ">
                                         <span className="font-montserrat  font-medium  text-xl leading-none"> Имя </span>
                                     </label>
                                     <input type="text" className="w-[60%] max-xl:w-full border border-gray-300
                                          rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
-                                           {...register("name", {required: "Введите ваше ваше имя!"})}/>
-                                    {errors.name && <div className="text-[#FF6B6B]">{errors.name.message}</div>}
+                                        {...register("name", { required: "Введите ваше ваше имя!" })} />
                                 </div>
-                                <div className="mb-4 flex max-xl:flex-col max-xl:items-start  items-center justify-between ">
+                                {errors.name && <div className="text-[#FF6B6B] flex justify-end mb-2">{errors.name.message}</div>}
+                                <div className="mb-2 flex max-xl:flex-col max-xl:items-start  items-center justify-between ">
                                     <label className="block text-dark-blue p-2 ">
                                         <span className="font-montserrat font-normal  text-xl leading-none"> Номер телефона </span>
                                     </label>
                                     <input type="tel" className="w-[60%] max-xl:w-full border
                                      border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
-                                           {...register("phone", {
-                                               required: "Введите номер телефона!",
-                                               minLength: {
-                                                   value: 6,
-                                                   message: "Номер не может быть короче 6 символов!"
-                                               },
-                                               pattern: {
-                                                   value: phoneRegExp,
-                                                   message: "Некорректный формат номера телефона"
-                                               }})}/>
-                                    {errors.phone && <div className="text-[#FF6B6B]">{errors.phone.message}</div>}
-                                </div>                     
-                                <div className="mb-4 flex max-xl:flex-col max-xl:items-start items-start justify-between">
+                                        {...register("phone", {
+                                            required: "Введите номер телефона!",
+                                            minLength: {
+                                                value: 6,
+                                                message: "Номер не может быть короче 6 символов!"
+                                            },
+                                            pattern: {
+                                                value: phoneRegExp,
+                                                message: "Некорректный формат номера телефона"
+                                            }
+                                        })} />  
+                                </div>
+                                {errors.phone && <div className="text-[#FF6B6B] flex justify-end mb-2">{errors.phone.message}</div>}
+                                <div className="mb-2 flex max-xl:flex-col max-xl:items-start items-start justify-between">
                                     <label className="block text-dark-blue p-2">
                                         <span className="font-montserrat font-normal text-xl leading-none">Ваш вопрос</span>
                                     </label>
                                     <textarea
                                         className="w-[60%] h-72 max-xl:w-full  max-h-72 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue"
-                                        {...register("comment", {required: "Необходимо ввести описание заказа!", minLength: {value: 6, message: "Вопрос должен сожержать минимум 6 букв!"}})}
-                                    ></textarea>
-                                    {errors.comment && <div className="text-[#FF6B6B]">{errors.comment.message}</div>}
+                                        {...register("comment", { required: "Необходимо ввести описание заказа!", minLength: { value: 6, message: "Вопрос должен сожержать минимум 6 букв!" } })}
+                                    ></textarea>       
                                 </div>
+                                {errors.comment && <div className="text-[#FF6B6B]  flex justify-end">{errors.comment.message}</div>}
                                 <div className="mt-4 flex justify-end ">
                                     <Button type="submit" label="Отправить" Delivery={true}></Button>
                                 </div>
