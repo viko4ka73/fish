@@ -69,7 +69,7 @@ const DeliveryPayment = () => {
                         flex flex-col max-xl:m-8   max-md:m-4">
                             <h3 className="text-dark-blue font-montserrat  text-[30px]  text-center
                             leading-normal font-bold mt-8  mobile-text-button mb-4  max-[400px]:p-2">
-                                Хотите задать нам вопрос? <br />
+                                Хотите связаться с нами? <br />
                                 Заполните форму и мы вам перезвоним!</h3>
                             <form className="p-8 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
 
@@ -127,7 +127,7 @@ const DeliveryPayment = () => {
                                     Самовывоз заказа по адресу: <br /> г. Санкт-Петербург, ул. Рыбка, д.1, кв.1
                                 </p>
                                 <p className="font-montserrat text-[30px] text-left mobile-text-button font-semibold text-white leading-normal  mb-10" >  Доставка по адресу
-                                    от <span className="text-dark-blue">5000 </span>рублей </p>
+                                    от <span className="text-dark-blue">10000 </span>рублей </p>
                                 <p className="font-montserrat text-[30px] text-left mobile-text-button font-semibold text-white leading-normal  mb-10" >   Время работы с 9:00 до 21:00.
                                 </p>
                             </div>
