@@ -17,14 +17,14 @@ interface ShopContextValue {
     decrementFromCart: (productId: number) => void;
     removeFromCart: (productId: number) => void;
     clearCart: () => void;
-    cartItemCount: number; 
+    cartItemCount: number;
 }
 
 export const ShopContext = createContext<ShopContextValue | null>(null);
 
 export const ShopProvider = ({ children }: { children: JSX.Element }) => {
     const [cartItems, setCartItems] = useState<{ [key: number]: CartItem }>({});
-    
+
 
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cartItems');
@@ -43,7 +43,7 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
 
     const addToCart = (product: Product) => {
         setCartItems((prevItems) => {
-            const newQuantity = prevItems[product.id] ? prevItems[product.id].quantity + 1 : 1;
+            const newQuantity = prevItems[product.id] ? prevItems[product.id].quantity + 0.5 : 1;
             const newCartItem = {
                 ...product,
                 quantity: newQuantity
@@ -53,10 +53,10 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
                 ...prevItems,
                 [product.id]: newCartItem
             };
-            
+
         });
     };
-    const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+    const cartItemCount = Object.values(cartItems).length;
 
     const decrementFromCart = (productId: number) => {
         setCartItems((prevItems) => {
@@ -64,12 +64,12 @@ export const ShopProvider = ({ children }: { children: JSX.Element }) => {
             if (!currentItem) {
                 return prevItems;
             }
-            if (currentItem.quantity > 1) {
+            if (currentItem.quantity > 0.5) {
                 return {
                     ...prevItems,
                     [productId]: {
                         ...currentItem,
-                        quantity: currentItem.quantity - 1
+                        quantity: currentItem.quantity - 0.5
                     }
                 };
             } else {

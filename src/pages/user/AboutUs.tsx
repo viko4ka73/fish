@@ -27,15 +27,15 @@ const AboutUs = () => {
                 />
             </div>
             <div className="bg-extralight-blue padding ">
-                <h1 className="text-dark-blue font-montserrat text-[68px] font-bold mb-20   max-xl:mb-14   max-lg:mb-10  max-md:mb-12  max-sm:mb-8   mt-16  m
+                <h1 className="text-dark-blue font-montserrat text-[60px] font-bold mb-20   max-xl:mb-14   max-lg:mb-10  max-md:mb-12  max-sm:mb-8   mt-16  m
                  max-lg:mt-1  max-md:mt-4  max-sm:mt-2 mobile-text">О нас</h1>
-                <p className="font-montserrat  leading-tight font-normal text-[55px] mb-10 text-info mobile-text-header">
-                    <span className="text-main-blue  font-semibold  text-justify text-[64px] mobile-text ">"Каспийская волна" </span>
+                <p className="font-montserrat  leading-tight font-normal text-[55px] mb-10 text-info  mobile-info-text">
+                    <span className="text-main-blue  font-semibold  text-justify text-[58px] mobile-text ">"Каспийская волна" </span>
                     — компания, специализирующаяся на продаже деликатесов из морепродуктов. Мы предлагаем избранный ассортимент свежих и вкусных морепродуктов, каждый из которых доставляется прямо из источника, обеспечивая непревзойденное качество и уникальный вкус.
                 </p>
                 <div className=" mt-16">
-                    <span className="text-dark-blue  font-montserrat font-bold text-justify text-[68px] mobile-text"> Наши ценности:</span>
-                    <div className="grid grid-cols-3 gap-10 mb-24 max-[1800px]:grid-cols-2 max-md:grid-cols-1">
+                    <span className="text-dark-blue  font-montserrat font-bold text-justify text-[60px] mobile-text"> Наши ценности:</span>
+                    <div className="grid grid-cols-2 gap-10 mb-24  max-md:grid-cols-1">
                         <div className="rounded-md mt-10 bg-white p-10">
                             <h3 className="text-main-blue font-montserrat  text-[55px]  leading-normal font-bold mobile-text"> Качество </h3>
                             <p className="font-montserrat text-left leading-tight font-normal text-[45px] text-info mobile-info-text">  Мы предлагаем только самые свежие высококачественные морепродукты,
@@ -55,8 +55,8 @@ const AboutUs = () => {
                             <p className="font-montserrat  text-left leading-tight font-normal text-[45px]  text-info mobile-info-text">  Мы постоянно ищем новые способы улучшения вкуса и качества нашей продукции, следуя последним тенденциям в области кулинарии и пищевых технологий. Наша цель — предложить клиентам не только традиционные вкусы, но и уникальные гастрономические открытия.</p>
                         </div>
                     </div>
-                    <span className="text-main-blue  font-montserrat font-bold text-justify text-[68px] mobile-text">Наши продукты:</span>
-                    <p className="font-montserrat  leading-tight font-normal text-[64px] mt-4 mobile-text-header text-info">Наша продукция представляет собой эксклюзивный выбор лучших деликатесов, включая икру и рыбу горячего и холодного копчения, все из которых вылавливается в богатых водах Астраханской области. Мы обладаем специальными квотами на вылов, что позволяет нам обеспечивать неизменное качество и свежесть каждой партии. Строгий контроль на каждом этапе обработки гарантирует, что до вашего стола попадают только лучшие продукты, соответствующие самым высоким стандартам.</p>
+                    <span className="text-main-blue  font-montserrat font-bold text-justify text-[60px] mobile-text">Наши продукты:</span>
+                    <p className="font-montserrat indent-3.5 leading-tight font-normal text-[45px] mt-4 mobile-info-text text-info">Наша продукция представляет собой эксклюзивный выбор лучших деликатесов, включая икру и рыбу горячего и холодного копчения, все из которых вылавливается в богатых водах Астраханской области. Мы обладаем специальными квотами на вылов, что позволяет нам обеспечивать неизменное качество и свежесть каждой партии. Строгий контроль на каждом этапе обработки гарантирует, что до вашего стола попадают только лучшие продукты, соответствующие самым высоким стандартам.</p>
                 </div>
             </div>
         </section>

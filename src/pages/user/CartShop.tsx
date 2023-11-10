@@ -39,7 +39,7 @@ const CartShop = () => {
 
   return (
     <section className="bg-extralight-blue pt-20 pb-20">
-      <img src={waves2} alt="waves" className="w-full pt-5" />
+      <img src={waves2} alt="waves" className="w-full pt-5" />   
       {hasItems ? (
         <Cart
           cartItems={cartItems}

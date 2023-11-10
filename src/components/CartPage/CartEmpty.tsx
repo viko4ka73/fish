@@ -24,9 +24,9 @@ const CartEmpty = ({ showSuccessAlert, showErrorAlert, closeAlert }: CartEmptyPr
             </span>
             <Button label="За покупками" Catalog={true} href='/products' />
             {showSuccessAlert && (
-                <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-start z-10 
+                <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-center z-10 
                 opacity-100 transition-opacity duration-500  bg-black bg-opacity-50">
-                    <div className="bg-white text-white p-4 rounded-b-lg">
+                    <div className="bg-white text-white p-4 rounded-lg">
                         <div className="container mx-auto text-end ">
                             <Alert message="Спасибо за заказ! Ваша заявка отправлена!" type="success" />
                             <button className="mt-4 border-2 px-4 rounded-sm bg-extralight-blue 
@@ -38,9 +38,9 @@ const CartEmpty = ({ showSuccessAlert, showErrorAlert, closeAlert }: CartEmptyPr
                 </div>
             )}
             {showErrorAlert && (
-                <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-start z-10 
+                <div className="absolute top-0 left-0 right-0 mx-auto w-full  h-full flex justify-center items-center z-10 
               opacity-100 transition-opacity duration-500  bg-black bg-opacity-50">
-                    <div className="bg-white text-white p-4 rounded-b-lg">
+                    <div className="bg-white text-white p-4 rounded-lg">
                         <div className="container mx-auto text-end">
                             <Alert message="Что-то пошло не так. Пожалуйста, попробуйте еще раз." type="error" />
                             <button className="mt-4 border-2 px-4 rounded-sm bg-extralight-blue  font-montserrat text-dark-blue hover:ring-light-blue hover:ring-2 text-xl" onClick={closeAlert}>

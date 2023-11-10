@@ -13,7 +13,7 @@ const Button = ({ label, href, Cart, Order, Catalog, Enter, onClick, inCart, Del
         {Cart && itemCount > 0 && (
           <div className="relative inline-flex items-center">
             <span className="rounded-full bg-[#FF6B6B] text-white text-xs w-5 h-5 absolute -top-7 left-[150px]  flex items-center justify-center">
-              {itemCount}
+              {itemCount.toFixed(0)}
             </span>
           </div>
         )}
