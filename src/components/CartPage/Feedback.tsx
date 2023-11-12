@@ -106,7 +106,7 @@ const Feedback = ({ cartAmount, setShowSuccessAlert, setShowErrorAlert}: Feedbac
                     className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-main-blue " />
                 {errors.phone && <div className="text-[#FF6B6B]">{errors.phone.message}</div>}
             </div>
-            {cartAmount >= 5000 ? <div className="mb-4">
+            {cartAmount >= 10000 ? <div className="mb-4">
 
                 <label className="block text-dark-blue">
                     <span className="font-montserrat font-normal leading-none text-lg ">Улица</span>

@@ -77,7 +77,7 @@ const Cart: React.FC<CartProps> = ({ cartItems, setShowErrorAlert, setShowSucces
                     <div className="flex justify-between">
                         <p className="text-lg font-bold  text-extradark-blue">Итого</p>
                         <div className="">
-                            <p className="mb-1 text-lg font-bold text-extradark-blue">{cartAmount.toFixed(2)}</p>
+                            <p className="mb-1 text-lg font-bold text-extradark-blue">{cartAmount.toFixed(2)} ₽</p>
                         </div>
                     </div>
                     <Feedback cartAmount={cartAmount} setShowSuccessAlert={setShowSuccessAlert} setShowErrorAlert={setShowErrorAlert} />
