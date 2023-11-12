@@ -1,15 +1,15 @@
-import { adminFish } from "../assets/images";
-import { Button } from "../components";
+import { adminFish } from "../../assets/images";
+
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-import Alert from "../components/Alert";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
+import Button from "../../components/Button";
+
 
 const Auth = () => {
     const [login, setLogin] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [alert, setAlert] = useState<boolean>(false);
     const navigate  = useNavigate();
 
     const {setAuth} = useAuth()
@@ -18,17 +18,14 @@ const Auth = () => {
         event.preventDefault();
         try {
       
-            const response = await axios.post(`http://127.0.0.1:1337/auth`, {
+            const response = await axios.post(`${process.env.REACT_APP_VAR_API_URL}/auth`, {
                 login: login,
                 password: password
             });
             if (response.data) {
                 setAuth(true);
                 navigate('/admin', {replace: true});
-            } else {
-                setAlert(true);
             }
-
         } catch (error) {
             console.error('В запросе произошла ошибка:', error);
         }

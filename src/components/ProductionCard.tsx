@@ -1,17 +1,26 @@
+import { Link } from "react-router-dom"
 
-
-const ProductionCard = ({ name, img }: any) => {
-    return (
-        <div className="rounded-md  ml-10 rounded-br-[40px]  bg-white mb-20 ">
-            <h3 className="text-main-blue font-montserrat text-4xl leading-normal font-bold mt-4 ml-12 max-2xl:text-[35px] "> {name}</h3>
-            <div className="flex justify-end ">
-                <img src={img} alt={name} />
-            </div>
-
-        </div>
-    )
+type ProductionCardProps = {
+    category: string;
+    photos: string[];
+    slugCategory: string;
 }
 
+const ProductionCard = ({ category, photos, slugCategory }: ProductionCardProps) => {
+    return (
+        <Link key={category}
+            to={`/products/${slugCategory}`}>
+            <div className="rounded-md ml-10 w-full  rounded-br-[40px]  bg-white mb-20 max-xl:mb-12  max-lg:mb-8 max-sm:mb-6">
+                <h3 className="text-main-blue font-montserrat  text-[64px]  cursor-pointer
+                        leading-normal font-bold mt-4 ml-12 mobile-text-header max-xl:ml-8 max-lg:ml-6 max-sm:ml-4 "> {category}</h3>
+                <div className="flex justify-end  ">
+                    <img src={`${process.env.REACT_APP_VAR_API_URL}/${photos[0]}`} className="rounded-tl-[90%]  border-t-8 border-l-8 border-[#BFDBEC]
+                 h-[45vh]  min-w-[100px] max-w-[800px] max-sm:h-[25vh]  object-cover object-center" alt={category} />
+                </div>
+            </div>
+        </Link>
+    )
+}
 export default ProductionCard
 
 

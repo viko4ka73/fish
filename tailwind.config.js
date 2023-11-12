@@ -21,12 +21,15 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
+        'info':"rgba(0, 0, 0, 0.7)",
+        'nav-blue': "#849BB8",
         'extralight-blue': "#e4ebf1",
         "light-blue": "#b3c4d8",
         "main-blue": "#7f9bc0",
         "dark-blue": "#516b8c",
         "extradark-blue": "#3a5274",
-        "white-400": "rgba(255, 255, 255, 0.80)"
+        "white-400": "rgba(255, 255, 255, 0.90)",
+    
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
@@ -36,8 +39,9 @@ module.exports = {
         'card': "url('assets/images/thumbnail-background.svg')",
       },
       screens: {
-        "wide": "1440px"
+        "wide": "1440px",
       }
+      
     }
   },
   plugins: [],

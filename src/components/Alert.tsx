@@ -1,16 +1,27 @@
-import exp from "constants";
+import React from 'react';
 
-function Alert() {
-    return (
-        <div role="alert" className={"padding-b"}>
-            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-                Ошибка
-            </div>
-            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                <p>Некоретные данные.</p>
-            </div>
-        </div>
-    )
+interface AlertProps {
+  message: string;
+  type: 'success' | 'error' | 'info';
 }
 
-export default Alert
+const Alert: React.FC<AlertProps> = ({ message, type }) => {
+  let alertClass = '';
+
+  switch (type) {
+    case 'success':
+      alertClass = 'bg-dark-blue  font-montserrat text-white';
+      break;
+    case 'error':
+      alertClass = 'bg-[#FF6B6B]  font-montserrat text-white';
+      break;
+  }
+
+  return (
+    <div className={`p-4 rounded ${alertClass}`}>
+      {message}
+    </div>
+  );
+};
+
+export default Alert;
