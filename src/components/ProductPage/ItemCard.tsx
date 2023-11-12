@@ -60,7 +60,7 @@ const ItemCard = ({id, name, description, photos, price, slugCategory, category,
                             </h2>
                             <div className="flex items-center space-x-4 my-4">
                                 <div>
-                                    <h2 className="mb-2 font-montserrat mobule-text-button font-normal text-white  text-2xl">
+                                    <h2 className="mb-2 font-montserrat mobule-text-button font-normal text-info  text-2xl">
                                         Описание товара:
                                     </h2>
                                     <div className="rounded-lg bg-gray-100 flex p-5">

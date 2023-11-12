@@ -83,7 +83,7 @@ const Products = () => {
                     </div>
                 ) : apiData ? (
                     <div className="flex max-md:flex-col ">
-                        <div className="flex flex-col mt-10 rounded-r-[50px] bg-light-blue h-[100%] max-md:flex-row  max-md:mr-4 max-[500px]:flex-col max-[500px]:w-[150px]">
+                        <div className="flex flex-col mt-10 w-[20%]  max-xl:w-[27%] max-md:w-full rounded-r-[50px] bg-light-blue h-[100%] max-md:flex-row  max-md:mr-4 max-[500px]:flex-col max-[500px]:w-[250px]">
                             {categories.map((product) => (
                                 <ProductsNav key={product.id} {...product} onSelectCategory={handleSelectCategory} />
                             ))}

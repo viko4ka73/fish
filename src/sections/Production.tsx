@@ -63,7 +63,7 @@ const Production = () => {
         ) : categoriesCard ? (
           <>
             <img src={fishnetRight} alt="net" className="absolute right-0 z-0 max-2xl:w-[700px] w-[45%] max-xl:hidden" />
-            <div className="grid grid-cols-3 gap-10 z-[1] mt-14 pl-8  
+            <div className="grid grid-cols-3 gap-10 z-[1] mt-14 pl-8 
             max-sm:mt-8 max-sm:pl-4 pr-20  max-xl:grid-cols-2 max-lg:grid-cols-2 max-sm:grid-cols-1">
               {categoriesCard.map((categories) => (
                 <ProductionCard key={categories.id} {...categories} />

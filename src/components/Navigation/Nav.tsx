@@ -36,7 +36,15 @@ const Nav = () => {
           ))}
         </ul>
         <div className="flex items-center">
-          <Button label={`Корзина`} href="/order" Cart={true} itemCount={cartItemCount} />
+          {cartItemCount > 0 ? (
+            <div className="relative inline-flex items-center">
+              <span className="rounded-full bg-[#FF6B6B]  text-white text-xs w-5 h-5 absolute -top-2 -right-2 flex items-center justify-center">
+                {cartItemCount.toFixed(0)}
+              </span>
+              <Button label={`Корзина`} href="/order" Cart={true} />
+            </div>
+          ) : <Button label={`Корзина`} href="/order" Cart={true} />}
+
           <NavMobile />
         </div>
       </nav>
